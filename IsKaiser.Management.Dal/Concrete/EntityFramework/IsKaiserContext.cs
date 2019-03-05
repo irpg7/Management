@@ -27,6 +27,9 @@ namespace IsKaiser.Management.Dal.Concrete.EntityFramework
             modelBuilder.ApplyConfiguration(new AffairVehicleDetailMap());
             modelBuilder.ApplyConfiguration(new AppointmentMap());
             modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new CustomerAccountantMap());
+            modelBuilder.ApplyConfiguration(new CustomerDirectorMap());
+            modelBuilder.ApplyConfiguration(new CustomerPurchasingStaffMap());
             modelBuilder.ApplyConfiguration(new DebateMap());
             modelBuilder.ApplyConfiguration(new EmployeeMap());
             modelBuilder.ApplyConfiguration(new EmployeeTeamMap());
