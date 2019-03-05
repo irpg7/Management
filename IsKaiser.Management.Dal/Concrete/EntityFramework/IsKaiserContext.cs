@@ -1,4 +1,5 @@
-﻿using IsKaiser.Management.Entities.Concrete;
+﻿using IsKaiser.Management.Dal.Concrete.EntityFramework.Mapping;
+using IsKaiser.Management.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,15 +21,21 @@ namespace IsKaiser.Management.Dal.Concrete.EntityFramework
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Affair>().HasKey(a => a.AffairId);
-            modelBuilder.Entity<AffairDetail>().HasKey(ad => ad.AffairDetailId);
-            modelBuilder.Entity<AffairEmployeeDetail>().HasKey(ed => ed.EmployeeDetailId);
-            modelBuilder.Entity<AffairVehicleDetail>().HasKey(vd => vd.VehicleDetailId);
-            modelBuilder.Entity<Vehicle>().HasKey(v => v.VehicleId);
-            modelBuilder.Entity<Product>().HasKey(p => p.ProductId);
-            modelBuilder.Entity<Invoice>().HasKey(i => i.InvoiceId);
-            modelBuilder.Entity<InvoiceLine>().HasKey(il => il.LineId);
-            modelBuilder.Entity<ProductType>().HasKey(pt => pt.TypeId);
+            modelBuilder.ApplyConfiguration(new AffairMap());
+            modelBuilder.ApplyConfiguration(new AffairDetailMap());
+            modelBuilder.ApplyConfiguration(new AffairEmployeeDetailMap());
+            modelBuilder.ApplyConfiguration(new AffairVehicleDetailMap());
+            modelBuilder.ApplyConfiguration(new AppointmentMap());
+            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new DebateMap());
+            modelBuilder.ApplyConfiguration(new EmployeeMap());
+            modelBuilder.ApplyConfiguration(new EmployeeTeamMap());
+            modelBuilder.ApplyConfiguration(new InvoiceLineMap());
+            modelBuilder.ApplyConfiguration(new InvoiceMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new ProductTypeMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new VehicleMap());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Customer> Customers { get; set; }
