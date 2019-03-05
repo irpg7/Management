@@ -34,19 +34,19 @@ namespace IsKaiser.Management.Bll.Concrete
         [FluentValidationAspect(typeof(CustomerValidator))]
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Update(customer);
         }
 
         public void Delete(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Delete(customer);
         }
 
         #region TransactionalOperations
         [TransactionScopeAspect]
         public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            _customerDal.Add(customer);
+            Add(customer);
             _customerAccountantService.Add(accountant);
             _customerDirectorService.Add(director);
             _customerStaffService.Add(purchasingStaff);
@@ -54,7 +54,7 @@ namespace IsKaiser.Management.Bll.Concrete
         [TransactionScopeAspect]
         public void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            _customerDal.Delete(customer);
+            Delete(customer);
             _customerDirectorService.Delete(director);
             _customerStaffService.Delete(purchasingStaff);
             _customerAccountantService.Delete(accountant);
@@ -62,7 +62,7 @@ namespace IsKaiser.Management.Bll.Concrete
         [TransactionScopeAspect]
         public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            _customerDal.Update(customer);
+            Update(customer);
             _customerDirectorService.Update(director);
             _customerStaffService.Update(purchasingStaff);
             _customerAccountantService.Update(accountant);
