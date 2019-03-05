@@ -47,6 +47,9 @@ namespace IsKaiser.Management.Bll.Concrete
         public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
             Add(customer);
+            accountant.CustomerId = customer.CustomerId;
+            director.CustomerId = customer.CustomerId;
+            purchasingStaff.CustomerId = customer.CustomerId;
             _customerAccountantService.Add(accountant);
             _customerDirectorService.Add(director);
             _customerStaffService.Add(purchasingStaff);

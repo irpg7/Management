@@ -167,6 +167,7 @@ namespace IsKaiser.Management.WinUI.Forms
                     
                     var newDirectorRec = new CustomerDirector
                     {
+                        
                         DirectorName = txtDirectorName.Text,
                         DirectorTitle = txtDirectorTitle.Text,
                         DirectorGsm = txtDirectorGsm.Text,
