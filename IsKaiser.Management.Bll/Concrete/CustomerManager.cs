@@ -1,6 +1,7 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
-using IsKaiser.Management.Core.Aspects.Postsharp;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
+using IsKaiser.Management.Core.Aspects.Postsharp.TransactionAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -35,6 +36,7 @@ namespace IsKaiser.Management.Bll.Concrete
         }
 
         #region TransactionalOperations
+        [TransactionScopeAspect]
         public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
             throw new NotImplementedException();

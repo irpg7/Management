@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace IsKaiser.Management.Core.Aspects.Postsharp
+namespace IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects
 {
     [Serializable]
     public class FluentValidationAspect:OnMethodBoundaryAspect
