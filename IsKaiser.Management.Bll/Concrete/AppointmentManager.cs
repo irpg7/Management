@@ -1,13 +1,9 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
-using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IsKaiser.Management.Bll.Concrete
 {
@@ -19,10 +15,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _appointmentDal = appointmentDal;
         }
-
+        [FluentValidationAspect(typeof(AppointmentValidator))]
         public void Add(Appointment appointment)
         {
-            ValidationTool.Validate(new AppointmentValidator(), appointment);
             _appointmentDal.Add(appointment);
         }
 
@@ -35,10 +30,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _appointmentDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(AppointmentValidator))]
         public void Update(Appointment appointment)
         {
-            ValidationTool.Validate(new AppointmentValidator(), appointment);
             _appointmentDal.Update(appointment);
         }
         public List<Appointment> GetAllByCustomer(int customerId)

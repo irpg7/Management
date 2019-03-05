@@ -1,4 +1,6 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
+using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -15,7 +17,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _vehicleDetailDal = vehicleDetailDal;
         }
-
+        [FluentValidationAspect(typeof(AffairVehicleDetailValidator))]
         public void Add(AffairVehicleDetail affairVehicleDetail)
         {
             _vehicleDetailDal.Add(affairVehicleDetail);
@@ -35,7 +37,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _vehicleDetailDal.GetAll(vd => vd.AffairId == affairId);
         }
-
+        [FluentValidationAspect(typeof(AffairVehicleDetailValidator))]
         public void Update(AffairVehicleDetail affairVehicleDetail)
         {
             _vehicleDetailDal.Update(affairVehicleDetail);

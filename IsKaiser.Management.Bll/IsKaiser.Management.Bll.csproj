@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Concrete\CustomerManager.cs~RF5c95f366.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DependencyResolvers\Ninject\" />
   </ItemGroup>
 

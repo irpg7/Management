@@ -1,4 +1,6 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
+using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -15,7 +17,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _productDal = productDal;
         }
-
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void Add(Product product)
         {
             _productDal.Add(product);
@@ -30,7 +32,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _productDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void Update(Product product)
         {
             _productDal.Update(product);

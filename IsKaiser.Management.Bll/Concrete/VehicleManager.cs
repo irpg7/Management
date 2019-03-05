@@ -1,11 +1,9 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
-using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IsKaiser.Management.Bll.Concrete
 {
@@ -17,10 +15,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _vehicleDal = vehicleDal;
         }
-
+        [FluentValidationAspect(typeof(VehicleValidator))]
         public void Add(Vehicle vehicle)
         {
-            ValidationTool.Validate(new VehicleValidator(), vehicle);
             _vehicleDal.Add(vehicle);
         }
 
@@ -38,10 +35,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _vehicleDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(VehicleValidator))]
         public void Update(Vehicle vehicle)
         {
-            ValidationTool.Validate(new VehicleValidator(), vehicle);
             _vehicleDal.Update(vehicle);
         }
     }

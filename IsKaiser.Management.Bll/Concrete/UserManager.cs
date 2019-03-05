@@ -1,11 +1,9 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
-using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace IsKaiser.Management.Bll.Concrete
 {
@@ -17,10 +15,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _userDal = userDal;
         }
-
+        [FluentValidationAspect(typeof(UserValidator))]
         public void Add(User user)
         {
-            ValidationTool.Validate(new UsersValidator(), user);
             _userDal.Add(user);
         }
 
@@ -37,10 +34,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _userDal.Get(u => u.UserName == username && u.UserPw == password);
         }
-
+        [FluentValidationAspect(typeof(UserValidator))]
         public void Update(User user)
         {
-            ValidationTool.Validate(new UsersValidator(), user);
             _userDal.Update(user);
         }
     }

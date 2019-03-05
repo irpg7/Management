@@ -6,7 +6,6 @@ using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-
 using System.Linq;
 
 namespace IsKaiser.Management.Bll.Concrete

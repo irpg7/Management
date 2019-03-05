@@ -1,13 +1,9 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
-using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IsKaiser.Management.Bll.Concrete
 {
@@ -19,10 +15,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _employeeDal = employeeDal;
         }
-
+        [FluentValidationAspect(typeof(EmployeeValidator))]
         public void Add(Employee employee)
         {
-            ValidationTool.Validate(new EmployeeValidator(), employee);
             _employeeDal.Add(employee);
         }
 
@@ -40,10 +35,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _employeeDal.Get(emp => emp.EmployeeCode == empCode);
         }
-
+        [FluentValidationAspect(typeof(EmployeeValidator))]
         public void Update(Employee employee)
         {
-            ValidationTool.Validate(new EmployeeValidator(), employee);
             _employeeDal.Update(employee);
         }
     }

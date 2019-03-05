@@ -1,12 +1,11 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
-using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
+using IsKaiser.Management.Dal.Abstract;
+using IsKaiser.Management.Entities.ComplexTypes;
 using IsKaiser.Management.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using IsKaiser.Management.Bll.Utilities;
-using IsKaiser.Management.Entities.ComplexTypes;
 using System.Linq;
 
 namespace IsKaiser.Management.Bll.Concrete
@@ -19,7 +18,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _affairDal = affairDal;
         }
-
+        [FluentValidationAspect(typeof(AffairValidator))]
         public void Add(Affair affair)
         {
             _affairDal.Add(affair);
@@ -44,7 +43,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _affairDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(AffairValidator))]
         public void Update(Affair affair)
         {
             _affairDal.Update(affair);

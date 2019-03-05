@@ -1,6 +1,7 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
 using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -19,10 +20,10 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _employeeTeamDal = employeeTeamDal;
         }
-
+        [FluentValidationAspect(typeof(TeamValidator))]
         public void Add(EmployeeTeam employeeTeam)
         {
-            ValidationTool.Validate(new TeamValidator(), employeeTeam);
+            
             _employeeTeamDal.Add(employeeTeam);
         }
 
@@ -35,10 +36,10 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _employeeTeamDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(TeamValidator))]
         public void Update(EmployeeTeam employeeTeam)
         {
-            ValidationTool.Validate(new TeamValidator(), employeeTeam);
+           
             _employeeTeamDal.Update(employeeTeam);
         }
     }

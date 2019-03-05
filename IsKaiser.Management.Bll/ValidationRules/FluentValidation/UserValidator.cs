@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace IsKaiser.Management.Bll.ValidationRules.FluentValidation
 {
-    public class UsersValidator : AbstractValidator<User>
+    public class UserValidator : AbstractValidator<User>
     {
-        public UsersValidator()
+        public UserValidator()
         {
             RuleFor(u => u.UserName).NotEmpty().OverridePropertyName("Kullanıcı Adı")
                 .Length(1,10);

@@ -1,4 +1,6 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
+using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp.ValidationAspects;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -16,7 +18,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _invoiceDal = invoiceDal;
         }
-
+        [FluentValidationAspect(typeof(InvoiceValidator))]
         public void Add(Invoice invoice)
         {
             _invoiceDal.Add(invoice);
@@ -31,7 +33,7 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _invoiceDal.GetAll();
         }
-
+        [FluentValidationAspect(typeof(InvoiceValidator))]
         public void Update(Invoice invoice)
         {
             _invoiceDal.Update(invoice);
