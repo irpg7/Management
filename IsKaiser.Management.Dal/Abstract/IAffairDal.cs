@@ -1,13 +1,12 @@
-﻿using IsKaiser.Management.Entities.ComplexTypes;
+﻿using IsKaiser.Management.Core.DataAccess;
+using IsKaiser.Management.Entities.ComplexTypes;
 using IsKaiser.Management.Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
 
 namespace IsKaiser.Management.Dal.Abstract
 {
-    public interface IAffairDal:IRepository<Affair>
+    public interface IAffairDal:IEntityRepository<Affair>
     {
        
         List<AffairsListCT> GetAffairList();

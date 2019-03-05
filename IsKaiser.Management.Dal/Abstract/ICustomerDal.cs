@@ -1,15 +1,11 @@
-﻿using IsKaiser.Management.Dal.Abstract;
+﻿using IsKaiser.Management.Core.DataAccess;
 using IsKaiser.Management.Entities.Concrete;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IsKaiser.Management.Dal.Abstract
 {
-    public interface ICustomerDal:IRepository<Customer>
+    public interface ICustomerDal: IEntityRepository<Customer>
     {
         void AddWithTransaction(Customer customer,CustomerAccountant customerAccountant
             ,CustomerDirector customerDirector,CustomerPurchasingStaff purchasingStaff);
