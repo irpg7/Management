@@ -1,4 +1,6 @@
 ﻿using IsKaiser.Management.Bll.Abstract;
+using IsKaiser.Management.Bll.ValidationRules.FluentValidation;
+using IsKaiser.Management.Core.Aspects.Postsharp;
 using IsKaiser.Management.Dal.Abstract;
 using IsKaiser.Management.Entities.Concrete;
 using System;
@@ -16,13 +18,13 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             _customerDal = customerDal;
         }
-
+        [FluentValidationAspect(typeof(CustomerValidator))]
         public void Add(Customer customer)
         {
             _customerDal.Add(customer);
         }
-
-        public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        [FluentValidationAspect(typeof(CustomerValidator))]
+        public void Update(Customer customer)
         {
             throw new NotImplementedException();
         }
@@ -32,10 +34,23 @@ namespace IsKaiser.Management.Bll.Concrete
             throw new NotImplementedException();
         }
 
+        #region TransactionalOperations
+        public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        {
+            throw new NotImplementedException();
+        }
         public void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
             throw new NotImplementedException();
         }
+        public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+
+
 
         public Customer Get(int id)
         {
@@ -45,14 +60,9 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _customerDal.GetAll();
         }
-        public void Update(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
-        {
-            throw new NotImplementedException();
-        }
+
+
+
     }
 }

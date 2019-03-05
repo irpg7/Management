@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace IsKaiser.Management.Core.Aspects.Postsharp
 {
+    [Serializable]
     public class FluentValidationAspect:OnMethodBoundaryAspect
     {
         Type _validatorType;
