@@ -66,7 +66,7 @@ namespace IsKaiser.Management.WinUI.Utilities
                             AccountantPhone = xdr[17].ToString(),
                             AccountantExpiry = Convert.ToDateTime(xdr[18],CultureInfo.GetCultureInfo("tr-TR").DateTimeFormat)
                         };
-                        customerService.Add(importedCustomer,importedAccountant,importedDirector,importedStaff);
+                        customerService.AddWithTransaction(importedCustomer,importedAccountant,importedDirector,importedStaff);
                     }
                     xconn.Close();
                 }

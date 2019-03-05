@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using IsKaiser.Management.Bll.Abstract;
 using IsKaiser.Management.Bll.DependencyResolvers.Ninject;
-using IsKaiser.Management.Bll.Utilities;
 using IsKaiser.Management.WinUI.Utilities;
 using System;
 using System.Linq;

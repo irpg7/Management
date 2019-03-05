@@ -25,12 +25,17 @@ namespace IsKaiser.Management.WinUI.Forms
         {
             InitializeComponent();
             _customerService = InstanceFactory.GetInstance<ICustomerService>();
-
             _employeeService = InstanceFactory.GetInstance<IEmployeeService>();
+            _customerAccountantService = InstanceFactory.GetInstance<ICustomerAccountantService>();
+            _customerDirectorService = InstanceFactory.GetInstance<ICustomerDirectorService>();
+            _purchasingStaffService = InstanceFactory.GetInstance<ICustomerPurchasingStaffService>();
         }
         ICustomerService _customerService;
+        ICustomerAccountantService _customerAccountantService;
+        ICustomerDirectorService _customerDirectorService;
+        ICustomerPurchasingStaffService _purchasingStaffService;
         IEmployeeService _employeeService;
-
+        
         Customer customerInfo;
         CustomerAccountant customerAccountant;
         CustomerPurchasingStaff customerPurchStaff;
@@ -55,9 +60,9 @@ namespace IsKaiser.Management.WinUI.Forms
             try
             {
                 customerInfo = _customerService.Get(frmMain.customerIdx);
-                customerAccountant = _customerService.GetAccountant(frmMain.customerIdx);
-                customerPurchStaff = _customerService.GetPurchasingStaff(frmMain.customerIdx);
-                customerDirector = _customerService.GetDirector(frmMain.customerIdx);
+                customerAccountant = _customerAccountantService.Get(frmMain.customerIdx);
+                customerPurchStaff = _purchasingStaffService.Get(frmMain.customerIdx);
+                customerDirector = _customerDirectorService.Get(frmMain.customerIdx);
 
                 txtCode.Text = customerInfo.CustomerCode;
                 txtName.Text = customerInfo.CustomerName;
@@ -138,7 +143,7 @@ namespace IsKaiser.Management.WinUI.Forms
                         AccountantPhone = txtAccountantPhone.Text,
                         AccountantExpiry = dtpAccountantExpiry.DateTime
                     };
-                    _customerService.Update(updateCustomer,updateAccountant,updateDirector,updatePurchasingStaff);
+                    _customerService.UpdateWithTransaction(updateCustomer,updateAccountant,updateDirector,updatePurchasingStaff);
                     FillCustomerInfo();
                     XtraMessageBox.Show("Güncellendi.");
                     
@@ -188,7 +193,7 @@ namespace IsKaiser.Management.WinUI.Forms
                         AccountantPhone = txtAccountantPhone.Text,
                         AccountantExpiry = dtpAccountantExpiry.DateTime
                     };
-                    _customerService.Add(newCustomerRec,newAccountantRec,newDirectorRec,newPurchasingStaffRec);
+                    _customerService.AddWithTransaction(newCustomerRec,newAccountantRec,newDirectorRec,newPurchasingStaffRec);
                     frmMain.customerIdx = newCustomerRec.CustomerId;
                     FillCustomerInfo();
                     tbarDetails.Visible = true;
