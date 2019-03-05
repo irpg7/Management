@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IsKaiser.Management.Bll.Utilities
+namespace IsKaiser.Management.Core.CrossCuttingConcerns.Validation.FluentValidation
 {
     public static class ValidationTool
     {
-        public static void Validate(IValidator validator,object entity)
+        public static void FluentValidate(IValidator validator,object entity)
         {
            var result= validator.Validate(entity);
             if (result.Errors.Count>0)

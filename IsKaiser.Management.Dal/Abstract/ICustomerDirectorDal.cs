@@ -1,11 +1,12 @@
 ﻿using IsKaiser.Management.Core.DataAccess;
 using IsKaiser.Management.Entities.Concrete;
 using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 
 namespace IsKaiser.Management.Dal.Abstract
 {
-    public interface ICustomerDal: IEntityRepository<Customer>
+    public interface ICustomerDirectorDal:IEntityRepository<CustomerDirector>
     {
     }
 }
