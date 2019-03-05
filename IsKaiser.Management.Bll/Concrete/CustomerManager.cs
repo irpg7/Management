@@ -13,11 +13,19 @@ namespace IsKaiser.Management.Bll.Concrete
     public class CustomerManager : ICustomerService
     {
         private ICustomerDal _customerDal;
+        ICustomerAccountantService _customerAccountantService;
+        ICustomerDirectorService _customerDirectorService;
+        ICustomerPurchasingStaffService _customerStaffService;
 
-        public CustomerManager(ICustomerDal customerDal)
+        public CustomerManager(ICustomerDal customerDal, ICustomerAccountantService customerAccountantService,
+            ICustomerDirectorService customerDirectorService, ICustomerPurchasingStaffService customerStaffService)
         {
             _customerDal = customerDal;
+            _customerAccountantService = customerAccountantService;
+            _customerDirectorService = customerDirectorService;
+            _customerStaffService = customerStaffService;
         }
+
         [FluentValidationAspect(typeof(CustomerValidator))]
         public void Add(Customer customer)
         {
@@ -38,21 +46,29 @@ namespace IsKaiser.Management.Bll.Concrete
         [TransactionScopeAspect]
         public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            throw new NotImplementedException();
+            _customerDal.Add(customer);
+            _customerAccountantService.Add(accountant);
+            _customerDirectorService.Add(director);
+            _customerStaffService.Add(purchasingStaff);
         }
+        [TransactionScopeAspect]
         public void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            throw new NotImplementedException();
+            _customerDal.Delete(customer);
+            _customerDirectorService.Delete(director);
+            _customerStaffService.Delete(purchasingStaff);
+            _customerAccountantService.Delete(accountant);
         }
+        [TransactionScopeAspect]
         public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            throw new NotImplementedException();
+            _customerDal.Update(customer);
+            _customerDirectorService.Update(director);
+            _customerStaffService.Update(purchasingStaff);
+            _customerAccountantService.Update(accountant);
         }
         #endregion
-
-
-
-
+        
         public Customer Get(int id)
         {
             return _customerDal.Get(c => c.CustomerId == id);
