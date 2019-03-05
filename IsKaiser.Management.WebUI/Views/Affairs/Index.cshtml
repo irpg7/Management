@@ -1,0 +1,45 @@
+﻿@model IsKaiser.Management.WebUI.Models.AffairListViewModel
+
+
+<div class="">
+    <br />
+    <div class="row">
+        <div class="col-md-8">
+            
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th onclick="AddNew()" class="btn-sm btn-success"
+                            style="cursor:pointer;user-select:none" width='1%'>Oluştur</th>
+                        <th>İş Tarihi</th>
+                        <th>Müşteri</th>
+                        <th>Proje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var affair in Model.AffairList)
+                    {
+                        <tr>
+                           <td></td>
+                            <td>@affair.AffairDate.ToString("dd/MM/yyyy")</td>
+                            <td>@affair.CustomerName</td>
+                            <td>@affair.Project</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function AddNew() {
+        $.ajax({
+            type: "GET",
+            url: "/Affairs/New",
+            success: function () {
+                window.location.assign("/Affairs/New")
+            }
+        })
+    }
+    </script>

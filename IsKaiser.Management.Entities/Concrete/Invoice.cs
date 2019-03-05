@@ -1,0 +1,22 @@
+﻿using IsKaiser.Management.Entities.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace IsKaiser.Management.Entities.Concrete
+{
+    public class Invoice:IEntity
+    {
+        public int InvoiceId { get; set; }
+        public int CustomerId { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public string Serie { get; set; }
+        public int Number { get; set; }
+        public string RefNumber { get; set; }
+        public short TaxRate { get; set; }
+        public short WithholdingRate { get; set; }
+        public decimal TotalAmount { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public decimal TaxAmount { get; set; }
+    }
+}

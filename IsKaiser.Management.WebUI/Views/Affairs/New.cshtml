@@ -1,0 +1,358 @@
+﻿@model IsKaiser.Management.WebUI.Models.NewAffairViewModel
+
+<link rel="stylesheet" href="~/Custom/floating-labels.css" />
+<script src="~/jquery-validation/jquery.validate.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<link rel="stylesheet" href="~/bootstrapclock/bootstrap-clockpicker.css" />
+<script src="~/bootstrapclock/bootstrap-clockpicker.js"></script>
+<script src="~/Custom/myCode.js"></script>
+<script src="~/signature-pad/signature_pad.js"></script>
+<br />
+
+<style>
+    input[type=time]::-webkit-inner-spin-button,
+    input[type=time]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+<form id="Affair" asp-antiforgery="true">
+    <div class="card">
+        <div class="card-header affair-header">
+            İş
+        </div>
+        <div class="affair-collapse collapse">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <select class="custom-select" asp-for="Affair.CustomerId" asp-items="@(new SelectList(Model.Customers, "CustomerId", "CustomerName"))"></select>
+                            <label asp-for="Affair.CustomerId">Müşteri</label>
+                            <span asp-validation-for="Affair.CustomerId"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <select class="custom-select" asp-for="Affair.EmployeeId" asp-items="@(new SelectList(Model.Employees, "EmployeeId", "EmployeeName"))"></select>
+                            <label asp-for="Affair.EmployeeId">Temsilci</label>
+                            <span asp-validation-for="Affair.EmployeeId"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <select class="custom-select" asp-for="Affair.VehicleId" asp-items="@(new SelectList(Model.Vehicles, "VehicleId", "VehiclePlate"))"></select>
+                            <label asp-for="Affair.VehicleId">Araç</label>
+                            <span asp-validation-for="Affair.VehicleId"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.AffairDate" type="date" />
+                            <label asp-for="Affair.AffairDate">İş Tarihi</label>
+                            <span asp-validation-for="Affair.AffairDate"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.City" placeholder="İl Giriniz." />
+                            <label asp-for="Affair.City">İl</label>
+                            <span asp-validation-for="Affair.City"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.District" placeholder="İlçe Giriniz" />
+                            <label asp-for="Affair.District">İlçe</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.ProjectNo" placeholder="Proje No." />
+                            <label asp-for="Affair.ProjectNo">Proje No.</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.Project" placeholder="Proje" />
+                            <label asp-for="Affair.Project">Proje</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.OrderNo" placeholder="Sipariş No." />
+                            <label asp-for="Affair.OrderNo">Sipariş No.</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.OrderedBy" placeholder="Sipariş Eden" />
+                            <label asp-for="Affair.OrderedBy">Sipariş Eden</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input class="form-control" asp-for="Affair.AffairsMade" placeholder="Yapılan İş" />
+                            <label asp-for="Affair.AffairsMade">Yapılan İş</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-header detail-header" data-toggle="collapse">
+            İş Detayları
+        </div>
+        <div class="detail-collapse collapse">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input asp-for="AffairDetail.BreakCausedBy" class="form-control" placeholder="Duraklama Kaynağı" />
+                            <label asp-for="AffairDetail.BreakCausedBy">Duraklama Kaynağı</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input asp-for="AffairDetail.EquipmentUsed" class="form-control" placeholder="Kullanılan Ekipman" />
+                            <label asp-for="AffairDetail.EquipmentUsed">Kullanılan Ekipman</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input asp-for="AffairDetail.SignatureDate" type="date" class="form-control" placeholder="İmza Tarihi" />
+                            <label asp-for="AffairDetail.SignatureDate">İmza Tarihi</label>
+                        </div>
+                        <div class="form-label-group">
+                            <select class="custom-select" asp-for="AffairDetail.EmployeeId" asp-items="@(new SelectList(Model.Employees, "EmployeeId", "EmployeeName"))"></select>
+                            <label asp-for="AffairDetail.EmployeeId">Temsilci</label>
+                            <span asp-validation-for="AffairDetail.EmployeeId"></span>
+                        </div>
+                        <div class="form-label-group">
+                            <canvas id="employeePad" width="250" height="150" style="border:solid 1px;"></canvas>
+                            <label>İmza</label>
+                            <input asp-for="AffairDetail.SignaturePath" hidden type="hidden" />
+                        </div>
+                        <button class="btn btn-info" onclick="employeePad.clear();" type="button">Temizle</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="time" asp-for="AffairDetail.BreakBeginTime"
+                                           onchange="onTimeChanged(this, document.getElementById('AffairDetail_BreakEndTime'),
+        document.getElementById('AffairDetail_TotalBreakTime'))"
+                                           class="form-control clockpicker" placeholder="Duraklama Başlangıç" />
+                                    <label asp-for="AffairDetail.BreakBeginTime">Duraklama Başlangıç</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="time" asp-for="AffairDetail.BreakEndTime"
+                                           onchange="onTimeChanged(document.getElementById('AffairDetail_BreakBeginTime'),this,
+        document.getElementById('AffairDetail_TotalBreakTime'))"
+                                           class="form-control clockpicker" placeholder="Duraklama Bitiş" />
+                                    <label asp-for="AffairDetail.BreakEndTime">Duraklama Bitiş</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-label-group">
+                                    <input type="time" readonly asp-for="AffairDetail.TotalBreakTime" class="form-control" placeholder="Toplam Duraklama" />
+                                    <label asp-for="AffairDetail.TotalBreakTime">Toplam Duraklama</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input asp-for="AffairDetail.CustomerInfo" class="form-control" placeholder="Müşteri" />
+                                    <label asp-for="AffairDetail.CustomerInfo">Müşteri</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input asp-for="AffairDetail.CustomerAgreement" class="form-control" placeholder="Müşteri Onayı" />
+                                    <label asp-for="AffairDetail.CustomerAgreement">Müşteri Onayı</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <canvas width="250" height="150" style="border:solid 1px;" id="customerPad"></canvas>
+                                    <label>Müşteri İmza</label>
+                                    <input asp-for="AffairDetail.CustomerSignaturePath" type="hidden" hidden />
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="customerPad.clear();">Temizle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-info">@TempData["Message"]</div>
+                }
+
+            </div>
+        </div>
+        <div class="card-header employee-header">
+            Personel Detayları
+        </div>
+        <div class="employee-collapse collapse">
+            <div class="card-body">
+                <button type="button" class="btn btn-success btn-block align-items-center" onclick="addEmp()">Personel Ekle</button>
+                <div id="employeeCard" class="row">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-header vehicle-header">
+            Araç Detayları
+        </div>
+        <div class="vehicle-collapse collapse">
+            <div class="card-body">
+                <button type="button" class="btn btn-success btn-block align-items-center" onclick="addVehicle()">Araç Ekle</button>
+                <div id="vehicleCard" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<button id="Save" onclick="SaveAsync()" class="btn btn-success float-right">Kaydet</button>
+
+<script type="text/javascript">
+    var p = 0;
+    function addEmp() {
+        var perHtml = `
+<div class="col-md-6">
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header">
+            <a data-toggle="collapse" href="#employee-alt`+p+`">Yeni Personel</a>
+        </div>
+        <div id="employee-alt`+p+`" class="collapse show">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <select class="custom-select" name="AffairEmployeeDetail[`+ p + `].EmployeeId">
+                                @foreach (var item in Model.Employees)
+                                {
+                                    @:<option value="@item.EmployeeId">@item.EmployeeName</option>
+                                }
+                            </select>
+                            <label for="AffairEmployeeDetail[`+p+`].EmployeeId">Personel</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input class="form-control" name="AffairEmployeeDetail[`+ p +`].Role" placeholder="Saha Rolü" />
+                            <label for="AffairEmployeeDetail[`+ p +`].Role">Saha Rolü</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairEmployeeDetail[`+ p +`]_WorkingIn" type="time" class="form-control clockpicker" name="AffairEmployeeDetail[`+ p +`].WorkingIn" value="00:00" placeholder="Giriş"
+                                   onchange="onTimeChanged(this, document.getElementById('AffairEmployeeDetail[`+ p + `]_WorkingOut'),document.getElementById('AffairEmployeeDetail[` + p +`]_NetWorkingTime'),
+                                                document.getElementById('AffairEmployeeDetail[` + p +`]_Total'))" />
+                            <label for="AffairEmployeeDetail[`+ p +`].WorkingIn">Giriş</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairEmployeeDetail[`+ p + `]_BreakTime" class="form-control" type="time" name="AffairEmployeeDetail[` + p +`].BreakTime" value="00:00" placeholder="Mola" />
+                            <label for="AffairEmployeeDetail[`+ p +`].BreakTime">Mola</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairEmployeeDetail[`+ p + `]_WorkingOut" type="time" class="form-control clockpicker" name="AffairEmployeeDetail[` + p +`].WorkingOut" value="00:00" placeholder="Çıkış"
+                                   onchange="onTimeChanged(document.getElementById('AffairEmployeeDetail[`+ p + `]_WorkingIn'),this
+                                    ,document.getElementById('AffairEmployeeDetail[`+ p + `]_NetWorkingTime'),document.getElementById('AffairEmployeeDetail[` + p +`]_Total'))" />
+                            <label for="AffairEmployeeDetail[`+ p +`].WorkingOut">Çıkış</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input id="AffairEmployeeDetail[`+ p +`]_NetWorkingTime" class="form-control" type="time" readonly name="AffairEmployeeDetail[`+ p +`].NetWorkingTime" value="00:00" placeholder="Net Süre" />
+                            <label for="AffairEmployeeDetail[`+ p +`].NetWorkingTime">Net Süre</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input id="AffairEmployeeDetail[`+ p +`]_Total" class="form-control" readonly type="time" name="AffairEmployeeDetail[`+ p +`].Total" value="00:00" placeholder="Toplam Süre" />
+                            <label for="AffairEmployeeDetail[`+ p +`].Total">Toplam Süre</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+        for (var i = 0; i < 1; i++) {
+
+            $('#employeeCard').append(perHtml);
+            initializeClock();
+            p++;
+        }
+    };
+</script>
+<script>
+    var v = 0;
+    function addVehicle() {
+        var vehHtml = `
+<div class="col-md-6">
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header">
+            <a data-toggle="collapse" href="#vehicle-alt`+ v +`">Yeni Araç</a>
+        </div>
+        <div id="vehicle-alt`+ v +`" class="collapse show">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-label-group">
+                            <select class="custom-select" name="AffairVehicleDetail[`+ v +`].VehicleId">
+                                @foreach (var item in Model.Vehicles)
+                                {
+                                    @:<option value=@item.VehicleId>@item.VehiclePlate</option>
+                                }
+                            </select>
+                            <label for="AffairVehicleDetail[`+ v +`].VehicleId">Araç</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input name="AffairVehicleDetail[`+ v +`].Note" class="form-control" placeholder="Not" type="text" />
+                            <label for="AffairVehicleDetail[`+ v +`].Note">Not</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairVehicleDetail[`+v+`]_WorkingIn" value="00:00" name="AffairVehicleDetail[`+ v +`].WorkingIn" class="form-control clockpicker" placeholder="Çalışma Başlangıç"
+                                   onchange="onTimeChanged(document.getElementById('AffairVehicleDetail[`+v+`]_WorkingIn'),
+                                            document.getElementById('AffairVehicleDetail[`+v+`]_WorkingOut'), document.getElementById('AffairVehicleDetail[`+v+`]_WorkingTotal'),
+                                            document.getElementById('AffairVehicleDetail[`+v+`]_Total'))" type="time" />
+                            <label for="AffairVehicleDetail[`+ v +`].WorkingIn">Başlama</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairVehicleDetail[`+ v + `]_WorkingBreak" value="00:00" name="AffairVehicleDetail[` + v +`].WorkingBreak"
+                                    class="form-control" placeholder="Mola" type="time" />
+                            <label for="AffairVehicleDetail[`+ v +`].WorkingBreak">Mola</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-label-group">
+                            <input id="AffairVehicleDetail[`+v+`]_WorkingOut" value="00:00" name="AffairVehicleDetail[`+ v +`].WorkingOut" class="form-control clockpicker" placeholder="Çalışma Bitiş"
+                                   onchange="onTimeChanged(document.getElementById('AffairVehicleDetail[`+v+`]_WorkingIn'),
+                                            document.getElementById('AffairVehicleDetail[`+v+`]_WorkingOut'), document.getElementById('AffairVehicleDetail[`+v+`]_WorkingTotal'),
+                                            document.getElementById('AffairVehicleDetail[`+v+`]_Total'))" type="time" />
+                            <label for="AffairVehicleDetail[`+ v +`].WorkingOut">Bitiş</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input id="AffairVehicleDetail[`+v+`]_WorkingTotal" value="00:00" name="AffairVehicleDetail[`+ v + `].WorkingTotal" readonly class="form-control" placeholder="Toplam Çalışma" type="time" />
+                            <label for="AffairVehicleDetail[`+ v +`].WorkingTotal">Toplam Çalışma</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input id="AffairVehicleDetail[`+v+`]_Total" name="AffairVehicleDetail[`+ v +`].Total" value="00:00" class="form-control" readonly placeholder="Genel Toplam" type="time" />
+                            <label for="AffairVehicleDetail[`+ v +`].Total">Genel Toplam</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+` ;
+
+        for (var i = 0; i < 1; i++) {
+
+            $("#vehicleCard").append(vehHtml);
+            initializeClock();
+            v++;
+        }
+    };
+
+</script>
+

@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "destination": "wwwroot/bootstrap",
+      "library": "twitter-bootstrap@4.2.1"
+    },
+    {
+      "destination": "wwwroot/jquery",
+      "library": "jquery@3.3.1"
+    },
+    {
+      "destination": "wwwroot/jquery-validation",
+      "library": "jquery-validate@1.19.0"
+    },
+    {
+      "destination": "wwwroot/jquery-validation-unobtrusive",
+      "library": "jquery-validation-unobtrusive@3.2.11"
+    },
+    {
+      "destination": "wwwroot/bootstrapclock",
+      "library": "clockpicker@0.0.7"
+    },
+    {
+      "destination": "wwwroot/signature-pad",
+      "library": "signature_pad@1.5.3"
+    }
+    
+  ]
+}

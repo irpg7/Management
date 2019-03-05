@@ -1,0 +1,21 @@
+﻿@model IsKaiser.Management.WebUI.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
+
+<link rel="stylesheet" href="~/Custom/floating-labels.css" />
+<body class="body">
+    <form asp-action="Login" asp-controller="User" method="post" class="form-signin">
+        <div class="form-label-group">
+            <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı" required autofocus>
+            <label asp-for="UserName">Kullanıcı Adı</label>
+        </div>
+        <div class="form-label-group">
+            <input type="password" asp-for="Password" class="form-control" placeholder="Şifre" required>
+            <label asp-for="Password">Şifre</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+    </form>
+</body>
+
