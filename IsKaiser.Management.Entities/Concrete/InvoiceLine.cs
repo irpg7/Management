@@ -1,4 +1,4 @@
-﻿using IsKaiser.Management.Entities.Abstract;
+﻿using IsKaiser.Management.Core.Entities;
 using System;
 
 namespace IsKaiser.Management.Entities.Concrete

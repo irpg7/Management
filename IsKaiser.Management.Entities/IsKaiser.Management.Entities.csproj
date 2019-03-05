@@ -8,4 +8,8 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview.18571.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IsKaiser.Management.Core\IsKaiser.Management.Core.csproj" />
+  </ItemGroup>
+
 </Project>

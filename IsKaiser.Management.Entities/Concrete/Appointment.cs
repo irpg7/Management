@@ -1,4 +1,4 @@
-﻿using IsKaiser.Management.Entities.Abstract;
+﻿using IsKaiser.Management.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +10,6 @@ namespace IsKaiser.Management.Entities.Concrete
 {
     public class Appointment:IEntity
     {
-       [Key]
         public int AppointmentId { get; set; }
         public int CustomerId { get; set; }
         public int EnvoyId { get; set; }

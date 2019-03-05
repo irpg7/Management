@@ -1,7 +1,5 @@
-﻿using IsKaiser.Management.Entities.Abstract;
+﻿using IsKaiser.Management.Core.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IsKaiser.Management.Entities.Concrete
 {

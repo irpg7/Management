@@ -1,16 +1,10 @@
-﻿using IsKaiser.Management.Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IsKaiser.Management.Core.Entities;
 
 namespace IsKaiser.Management.Entities.Concrete
 {
     public class Customer:IEntity
     {
-        [Key]
+       
         public int CustomerId { get; set; }
         public string CustomerCode { get; set; }
         public string CustomerName { get; set; }
