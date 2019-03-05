@@ -9,13 +9,16 @@ namespace IsKaiser.Management.Bll.Abstract
 {
     public interface ICustomerService
     {
-        void AddWithTransaction(Customer customer,CustomerAccountant accountant,CustomerDirector director,
-            CustomerPurchasingStaff purchasingStaff);
-        void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director,
-            CustomerPurchasingStaff purchasingStaff);
-        void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director,
-            CustomerPurchasingStaff purchasingStaff);
+        void Add(Customer customer);
+        void Update(Customer customer);
+        void Delete(Customer customer);
         Customer Get(int customerId);
         List<Customer> GetAll();
+        void AddWithTransaction(Customer customer,CustomerAccountant accountant,CustomerDirector director
+            ,CustomerPurchasingStaff purchasingStaff);
+        void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director
+            , CustomerPurchasingStaff purchasingStaff);
+        void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director
+            , CustomerPurchasingStaff purchasingStaff);
     }
 }

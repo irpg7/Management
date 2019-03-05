@@ -6,6 +6,9 @@ namespace IsKaiser.Management.Bll.Abstract
 {
     public interface ICustomerPurchasingStaffService
     {
+        void Add(CustomerPurchasingStaff purchasingStaff);
+        void Update(CustomerPurchasingStaff purchasingStaff);
+        void Delete(CustomerPurchasingStaff purchasingStaff);
         CustomerPurchasingStaff Get(int customerId);
     }
 }

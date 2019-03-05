@@ -17,16 +17,24 @@ namespace IsKaiser.Management.Bll.Concrete
             _customerDal = customerDal;
         }
 
-        public void AddWithTransaction(Customer customer, CustomerAccountant accountant,
-            CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        public void Add(Customer customer)
         {
-            
+            _customerDal.Add(customer);
         }
 
-        public void DeleteWithTransaction(Customer customer, CustomerAccountant accountant,
-            CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        public void AddWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
         {
-            
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        {
+            throw new NotImplementedException();
         }
 
         public Customer Get(int id)
@@ -37,11 +45,14 @@ namespace IsKaiser.Management.Bll.Concrete
         {
             return _customerDal.GetAll();
         }
-
-        public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, 
-            CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        public void Update(Customer customer)
         {
-            
+            throw new NotImplementedException();
+        }
+
+        public void UpdateWithTransaction(Customer customer, CustomerAccountant accountant, CustomerDirector director, CustomerPurchasingStaff purchasingStaff)
+        {
+            throw new NotImplementedException();
         }
     }
 }
