@@ -39,6 +39,7 @@ namespace IsKaiser.Management.Dal.Concrete.EntityFramework
             modelBuilder.ApplyConfiguration(new ProductTypeMap());
             modelBuilder.ApplyConfiguration(new UserMap());
             modelBuilder.ApplyConfiguration(new VehicleMap());
+            modelBuilder.ApplyConfiguration(new SaleInvoiceMap());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Customer> Customers { get; set; }
@@ -61,6 +62,7 @@ namespace IsKaiser.Management.Dal.Concrete.EntityFramework
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceLine> InvoiceLines { get; set; }
+        public DbSet<SaleInvoice> SaleInvoices { get; set; }
 
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using IsKaiser.Management.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace IsKaiser.Management.Entities.Concrete
 {
-    public class SaleInvoice
+    public class SaleInvoice:IEntity
     {
         public int SaleId { get; set; }
         public int InvoiceId { get; set; }
