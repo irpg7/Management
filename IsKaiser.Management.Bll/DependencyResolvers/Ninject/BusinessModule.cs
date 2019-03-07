@@ -26,6 +26,7 @@ namespace IsKaiser.Management.Bll.DependencyResolvers.Ninject
             Bind<IInvoiceService>().To<InvoiceManager>();
             Bind<IInvoiceLineService>().To<InvoiceLineManager>();
             Bind<IProductTypeService>().To<ProductTypeManager>();
+            Bind<ISaleInvoiceService>().To<SaleInvoiceManager>();
 
             Bind<ICustomerDal>().To<EfCustomerDal>();
             Bind<ICustomerAccountantDal>().To<EfCustomerAccountantDal>();
@@ -40,6 +41,7 @@ namespace IsKaiser.Management.Bll.DependencyResolvers.Ninject
             Bind<IProductDal>().To<EfProductDal>();
             Bind<IInvoiceDal>().To<EfInvoiceDal>();
             Bind<IInvoiceLineDal>().To<EfInvoiceLineDal>();
+            Bind<ISaleInvoiceDal>().To<EfSaleInvoiceDal>();
             Bind<IProductTypeDal>().To<EfProductTypeDal>();
 
 
