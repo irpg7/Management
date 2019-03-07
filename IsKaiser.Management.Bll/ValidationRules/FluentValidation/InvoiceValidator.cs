@@ -18,7 +18,7 @@ namespace IsKaiser.Management.Bll.ValidationRules.FluentValidation
             RuleFor(i => i.Serie).NotEmpty().OverridePropertyName("Evrak Seri");
            // RuleFor(i => i.TaxAmount).NotEmpty().OverridePropertyName("KDV Oranı");
             RuleFor(i=>i.TaxRate).NotEmpty().OverridePropertyName("KDV Oranı");
-            RuleFor(i => i.WithholdingRate).NotEmpty().OverridePropertyName("Tevkifat Oranı");
+           // RuleFor(i => i.WithholdingRate).NotEmpty().OverridePropertyName("Tevkifat Oranı");
         }
     }
 }

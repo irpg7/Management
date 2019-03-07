@@ -10,11 +10,9 @@ namespace IsKaiser.Management.Entities.Concrete
         public DateTime InvoiceDate { get; set; }
         public string Serie { get; set; }
         public int Number { get; set; }
-        public string RefNumber { get; set; }
         public short TaxRate { get; set; }
         public short WithholdingRate { get; set; }
         public decimal TotalAmount { get; set; }
-        public DateTime ExpiryDate { get; set; }
         public decimal TaxAmount { get; set; }
     }
 }
