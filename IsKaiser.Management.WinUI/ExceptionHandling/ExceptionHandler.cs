@@ -17,9 +17,13 @@ namespace IsKaiser.Management.WinUI.ExceptionHandling
             {
                 action.Invoke();
             }
-            catch(Exception exception)
+            catch(ValidationException exception)
             {
                 XtraMessageBox.Show(exception.Message);
+            }
+            catch(Exception exception)
+            {
+                XtraMessageBox.Show("Bir Hata Oluştu");
             }
         }
     }

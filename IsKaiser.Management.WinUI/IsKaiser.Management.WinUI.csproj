@@ -371,6 +371,10 @@
       <Project>{EE25A458-BBA9-4C87-AC84-C0317995AAE1}</Project>
       <Name>IsKaiser.Management.Bll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IsKaiser.Management.Core\IsKaiser.Management.Core.csproj">
+      <Project>{E0C68DA4-CC92-409C-87B7-CF6966B19559}</Project>
+      <Name>IsKaiser.Management.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IsKaiser.Management.Entities\IsKaiser.Management.Entities.csproj">
       <Project>{6D0F7260-D056-496C-BB60-7DDFDABB4B2E}</Project>
       <Name>IsKaiser.Management.Entities</Name>

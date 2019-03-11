@@ -13,6 +13,7 @@ using IsKaiser.Management.Bll.Abstract;
 using IsKaiser.Management.Bll.DependencyResolvers.Ninject;
 using DevExpress.XtraReports.UI;
 using IsKaiser.Management.WinUI.Utilities;
+using IsKaiser.Management.WinUI.ExceptionHandling;
 
 namespace IsKaiser.Management.WinUI.Forms
 {
@@ -22,11 +23,13 @@ namespace IsKaiser.Management.WinUI.Forms
         IInvoiceService _invoiceService;
         IInvoiceLineService _invoiceLineService;
         ICustomerService _customerService;
+        ISaleInvoiceService _saleInvoiceService;
         public frmInvoice()
         {
             InitializeComponent();
             _productService = InstanceFactory.GetInstance<IProductService>();
             _invoiceService = InstanceFactory.GetInstance<IInvoiceService>();
+            _saleInvoiceService = InstanceFactory.GetInstance<ISaleInvoiceService>();
             _invoiceLineService = InstanceFactory.GetInstance<IInvoiceLineService>();
             _customerService = InstanceFactory.GetInstance<ICustomerService>();
         }
@@ -34,6 +37,8 @@ namespace IsKaiser.Management.WinUI.Forms
         BindingList<InvoiceLine> invoiceLines;
         private void frmBill_Load(object sender, EventArgs e)
         {
+            cmbInvoiceType.SelectedIndex = 0;
+            cmbWithholding.SelectedIndex = 0;
             lookupProduct.DataSource = _productService.GetList();
             cmbCustomers.Properties.DataSource = _customerService.GetAll();
             NewBill();
@@ -52,23 +57,38 @@ namespace IsKaiser.Management.WinUI.Forms
         }
         private void tbtnSave_ItemClick(object sender, TileItemEventArgs e)
         {
+            ExceptionHandler.HandleException(() => { 
             var recToAdd = new Invoice
             {
+                InvoiceType = (short)cmbInvoiceType.SelectedIndex,
                 CustomerId = Convert.ToInt32(cmbCustomers.EditValue),
-                ExpiryDate = dtpExpiry.DateTime,
                 InvoiceDate = dtpDate.DateTime,
                 Number = Convert.ToInt32(txtNo.Text),
-                RefNumber = txtRefNo.Text,
                 Serie = txtSerie.Text,
                 TaxRate = Convert.ToInt16(txtTaxRate.Text),
                 WithholdingRate = Convert.ToInt16(cmbWithholding.EditValue)
             };
+            
             recToAdd.TaxAmount = invoiceLines.Sum(il => il.UnitPrice*il.Quantity)*(recToAdd.TaxRate/(decimal)100.00);
             recToAdd.TotalAmount = invoiceLines.Sum(il => il.UnitPrice*il.Quantity);
             _invoiceService.Add(recToAdd);
+            if (cmbWithholding.SelectedIndex == 0)
+            {
+                var saleInvoice = new SaleInvoice
+                {
+                    ExpiryDate = Convert.ToInt16(dtpExpiry.Text),
+                    InvoiceId = recToAdd.InvoiceId,
+                    OrderDate=dtpOrderDate.DateTime,
+                    OrderedBy=txtOrderedBy.Text,
+                    OrderNo=txtOrderNo.Text,
+                    RefNumber=txtRefNo.Text,
+                    RequestedBy=txtRequest.Text,
+                };
+                _saleInvoiceService.Add(saleInvoice);
+            }
             invoiceLines.ToList().ForEach(il => il.InvoiceId = recToAdd.InvoiceId);
             invoiceLines.ToList().ForEach(il => _invoiceLineService.Add(il));
-
+            });
         }
 
         private void tabPanel_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
@@ -85,16 +105,17 @@ namespace IsKaiser.Management.WinUI.Forms
         {
             invoiceId = Convert.ToInt32(vwBillList.GetFocusedRowCellValue("InvoiceId"));
             var getBill = _invoiceService.Get(invoiceId);
+            var getSaleDetails = _saleInvoiceService.Get(invoiceId);
             tabPanel.SelectedPage = tabNewBill;
             tabNewBill.Caption = "Fatura";
             txtNo.Text = getBill.Number.ToString();
-            txtRefNo.Text = getBill.RefNumber;
+            txtRefNo.Text = getSaleDetails.RefNumber;
             txtSerie.Text = getBill.Serie;
             txtTaxRate.Text = getBill.TaxRate.ToString();
             cmbWithholding.EditValue = getBill.WithholdingRate;
             cmbCustomers.EditValue = getBill.CustomerId;
             dtpDate.EditValue = getBill.InvoiceDate;
-            dtpExpiry.EditValue = getBill.ExpiryDate;
+            dtpExpiry.EditValue = getSaleDetails.ExpiryDate;
             invoiceLines= new BindingList<InvoiceLine>(_invoiceLineService.GetLines(invoiceId));
             grdBill.DataSource = invoiceLines;
             vwBill.OptionsBehavior.ReadOnly = true;
@@ -109,7 +130,7 @@ namespace IsKaiser.Management.WinUI.Forms
             txtRefNo.ResetText();
             txtSerie.ResetText();
             txtTaxRate.ResetText();
-            cmbWithholding.ResetText();
+            cmbWithholding.SelectedIndex = 0;
             cmbCustomers.EditValue = 0;
             dtpDate.ResetText();
             dtpExpiry.ResetText();
@@ -131,7 +152,10 @@ namespace IsKaiser.Management.WinUI.Forms
 
         private void tbtnPrint_ItemClick(object sender, TileItemEventArgs e)
         {
-            PrintReport();
+            ExceptionHandler.HandleException(()=> {
+                PrintReport();
+            });
+            
         }
         void PrintReport()
         {
