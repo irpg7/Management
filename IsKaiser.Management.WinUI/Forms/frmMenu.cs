@@ -36,12 +36,17 @@ namespace IsKaiser.Management.WinUI.Forms
         {
             frmProducts frProducts = new frmProducts();
             frProducts.Show();
-            Hide();
+            
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

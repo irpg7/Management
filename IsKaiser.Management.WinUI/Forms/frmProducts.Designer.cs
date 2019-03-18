@@ -119,7 +119,6 @@
             // 
             // tileBar1
             // 
-            this.tileBar1.AllowDrag = false;
             this.tileBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tileBar1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.tileBar1.Groups.Add(this.tileBarGroup2);
@@ -156,7 +155,7 @@
             this.tbtnSave.Id = 0;
             this.tbtnSave.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnSave.Name = "tbtnSave";
-            this.tbtnSave.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnSave_ItemClick);
+            this.tbtnSave.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.TbtnSave_ItemClick);
             // 
             // frmProducts
             // 
@@ -168,8 +167,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmProducts";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProducts_FormClosing);
+            this.Text = "Ürün Ekle";
             this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbProductType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();

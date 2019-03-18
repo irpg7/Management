@@ -11,7 +11,6 @@ namespace IsKaiser.Management.Bll.ValidationRules.FluentValidation
         public SaleInvoiceValidator()
         {
             RuleFor(si => si.OrderDate).NotEmpty().OverridePropertyName("Sipariş Tarihi");
-            RuleFor(si => si.ExpiryDate).NotEmpty().OverridePropertyName("Vade");
             RuleFor(si => si.OrderedBy).NotEmpty().OverridePropertyName("Sipariş Veren");
             RuleFor(si => si.OrderNo).NotEmpty().OverridePropertyName("Sipariş No");
             RuleFor(si => si.RefNumber).NotEmpty().OverridePropertyName("Ref.No");

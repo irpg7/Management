@@ -28,14 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repocmbWithholding = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.tabNewBill = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.dtpOrderDate = new DevExpress.XtraEditors.DateEdit();
+            this.txtWaybillNo = new DevExpress.XtraEditors.TextEdit();
+            this.lblWaybillNo = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbInvoiceType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtOrderNo = new DevExpress.XtraEditors.TextEdit();
+            this.lblOrderNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblOrderDate = new DevExpress.XtraEditors.LabelControl();
+            this.txtOrderedBy = new DevExpress.XtraEditors.TextEdit();
+            this.lblOrderedBy = new DevExpress.XtraEditors.LabelControl();
+            this.txtRequest = new DevExpress.XtraEditors.TextEdit();
+            this.lblRequested = new DevExpress.XtraEditors.LabelControl();
             this.txtTaxRate = new DevExpress.XtraEditors.TextEdit();
             this.txtSerie = new DevExpress.XtraEditors.TextEdit();
             this.txtRefNo = new DevExpress.XtraEditors.TextEdit();
@@ -43,14 +56,14 @@
             this.cmbCustomers = new DevExpress.XtraEditors.LookUpEdit();
             this.dtpDate = new DevExpress.XtraEditors.DateEdit();
             this.cmbWithholding = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblWithholding = new DevExpress.XtraEditors.LabelControl();
+            this.lblTaxRate = new DevExpress.XtraEditors.LabelControl();
+            this.lblExpiry = new DevExpress.XtraEditors.LabelControl();
+            this.lblRefNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblDate = new DevExpress.XtraEditors.LabelControl();
+            this.lblCustomer = new DevExpress.XtraEditors.LabelControl();
+            this.lblNo = new DevExpress.XtraEditors.LabelControl();
+            this.lblSerie = new DevExpress.XtraEditors.LabelControl();
             this.barForNew = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tbtnSave = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -62,37 +75,38 @@
             this.lookupProduct = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dtpExpiry = new DevExpress.XtraEditors.TextEdit();
             this.tabBillList = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gridBillList = new DevExpress.XtraGrid.GridControl();
             this.vwBillList = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colBillDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdcmbTypes = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSerie = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lookupCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colExpiry = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTaxRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWithholding = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTotalAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTaxAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotalWithTax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barForList = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup3 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tbtnGoTo = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tbtnPrintList = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tabPanel = new DevExpress.XtraBars.Navigation.TabPane();
-            this.dtpExpiry = new DevExpress.XtraEditors.TextEdit();
-            this.txtRequest = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.txtOrderedBy = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpOrderDate = new DevExpress.XtraEditors.DateEdit();
-            this.txtOrderNo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbInvoiceType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repocmbWithholding)).BeginInit();
             this.tabNewBill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWaybillNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInvoiceType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderedBy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRequest.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRefNo.Properties)).BeginInit();
@@ -104,21 +118,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpExpiry.Properties)).BeginInit();
             this.tabBillList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBillList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwBillList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdcmbTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPanel)).BeginInit();
             this.tabPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpExpiry.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRequest.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOrderedBy.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbInvoiceType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemLookUpEdit1
@@ -154,15 +161,18 @@
             // tabNewBill
             // 
             this.tabNewBill.Caption = "Yeni Fatura";
+            this.tabNewBill.Controls.Add(this.dtpOrderDate);
+            this.tabNewBill.Controls.Add(this.txtWaybillNo);
+            this.tabNewBill.Controls.Add(this.lblWaybillNo);
             this.tabNewBill.Controls.Add(this.labelControl13);
             this.tabNewBill.Controls.Add(this.cmbInvoiceType);
             this.tabNewBill.Controls.Add(this.txtOrderNo);
-            this.tabNewBill.Controls.Add(this.labelControl12);
-            this.tabNewBill.Controls.Add(this.labelControl11);
+            this.tabNewBill.Controls.Add(this.lblOrderNo);
+            this.tabNewBill.Controls.Add(this.lblOrderDate);
             this.tabNewBill.Controls.Add(this.txtOrderedBy);
-            this.tabNewBill.Controls.Add(this.labelControl10);
+            this.tabNewBill.Controls.Add(this.lblOrderedBy);
             this.tabNewBill.Controls.Add(this.txtRequest);
-            this.tabNewBill.Controls.Add(this.labelControl9);
+            this.tabNewBill.Controls.Add(this.lblRequested);
             this.tabNewBill.Controls.Add(this.txtTaxRate);
             this.tabNewBill.Controls.Add(this.txtSerie);
             this.tabNewBill.Controls.Add(this.txtRefNo);
@@ -170,54 +180,158 @@
             this.tabNewBill.Controls.Add(this.cmbCustomers);
             this.tabNewBill.Controls.Add(this.dtpDate);
             this.tabNewBill.Controls.Add(this.cmbWithholding);
-            this.tabNewBill.Controls.Add(this.labelControl8);
-            this.tabNewBill.Controls.Add(this.labelControl7);
-            this.tabNewBill.Controls.Add(this.labelControl6);
-            this.tabNewBill.Controls.Add(this.labelControl5);
-            this.tabNewBill.Controls.Add(this.labelControl4);
-            this.tabNewBill.Controls.Add(this.labelControl3);
-            this.tabNewBill.Controls.Add(this.labelControl2);
-            this.tabNewBill.Controls.Add(this.labelControl1);
+            this.tabNewBill.Controls.Add(this.lblWithholding);
+            this.tabNewBill.Controls.Add(this.lblTaxRate);
+            this.tabNewBill.Controls.Add(this.lblExpiry);
+            this.tabNewBill.Controls.Add(this.lblRefNo);
+            this.tabNewBill.Controls.Add(this.lblDate);
+            this.tabNewBill.Controls.Add(this.lblCustomer);
+            this.tabNewBill.Controls.Add(this.lblNo);
+            this.tabNewBill.Controls.Add(this.lblSerie);
             this.tabNewBill.Controls.Add(this.barForNew);
             this.tabNewBill.Controls.Add(this.grdBill);
             this.tabNewBill.Controls.Add(this.dtpExpiry);
-            this.tabNewBill.Controls.Add(this.dtpOrderDate);
             this.tabNewBill.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNewBill.ImageOptions.Image")));
             this.tabNewBill.Name = "tabNewBill";
-            this.tabNewBill.Size = new System.Drawing.Size(875, 526);
+            this.tabNewBill.Size = new System.Drawing.Size(992, 526);
+            // 
+            // dtpOrderDate
+            // 
+            this.dtpOrderDate.EditValue = null;
+            this.dtpOrderDate.Location = new System.Drawing.Point(821, 145);
+            this.dtpOrderDate.Name = "dtpOrderDate";
+            this.dtpOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpOrderDate.Size = new System.Drawing.Size(156, 20);
+            this.dtpOrderDate.TabIndex = 9;
+            // 
+            // txtWaybillNo
+            // 
+            this.txtWaybillNo.Location = new System.Drawing.Point(73, 171);
+            this.txtWaybillNo.Name = "txtWaybillNo";
+            this.txtWaybillNo.Size = new System.Drawing.Size(146, 20);
+            this.txtWaybillNo.TabIndex = 10;
+            // 
+            // lblWaybillNo
+            // 
+            this.lblWaybillNo.Location = new System.Drawing.Point(12, 174);
+            this.lblWaybillNo.Name = "lblWaybillNo";
+            this.lblWaybillNo.Size = new System.Drawing.Size(55, 13);
+            this.lblWaybillNo.TabIndex = 56;
+            this.lblWaybillNo.Text = "İrsaliye No.";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(19, 89);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(46, 13);
+            this.labelControl13.TabIndex = 54;
+            this.labelControl13.Text = "Evrak Tipi";
+            // 
+            // cmbInvoiceType
+            // 
+            this.cmbInvoiceType.Location = new System.Drawing.Point(73, 86);
+            this.cmbInvoiceType.Name = "cmbInvoiceType";
+            this.cmbInvoiceType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbInvoiceType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbInvoiceType.Size = new System.Drawing.Size(146, 20);
+            this.cmbInvoiceType.TabIndex = 1;
+            this.cmbInvoiceType.SelectedIndexChanged += new System.EventHandler(this.cmbInvoiceType_SelectedIndexChanged);
+            // 
+            // txtOrderNo
+            // 
+            this.txtOrderNo.Location = new System.Drawing.Point(821, 171);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Properties.MaxLength = 50;
+            this.txtOrderNo.Size = new System.Drawing.Size(156, 20);
+            this.txtOrderNo.TabIndex = 14;
+            // 
+            // lblOrderNo
+            // 
+            this.lblOrderNo.Location = new System.Drawing.Point(764, 174);
+            this.lblOrderNo.Name = "lblOrderNo";
+            this.lblOrderNo.Size = new System.Drawing.Size(51, 13);
+            this.lblOrderNo.TabIndex = 52;
+            this.lblOrderNo.Text = "Sipariş No.";
+            // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.Location = new System.Drawing.Point(771, 148);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(44, 13);
+            this.lblOrderDate.TabIndex = 50;
+            this.lblOrderDate.Text = "Sip.Tarihi";
+            // 
+            // txtOrderedBy
+            // 
+            this.txtOrderedBy.Location = new System.Drawing.Point(821, 119);
+            this.txtOrderedBy.Name = "txtOrderedBy";
+            this.txtOrderedBy.Properties.MaxLength = 50;
+            this.txtOrderedBy.Size = new System.Drawing.Size(156, 20);
+            this.txtOrderedBy.TabIndex = 5;
+            // 
+            // lblOrderedBy
+            // 
+            this.lblOrderedBy.Location = new System.Drawing.Point(757, 122);
+            this.lblOrderedBy.Name = "lblOrderedBy";
+            this.lblOrderedBy.Size = new System.Drawing.Size(58, 13);
+            this.lblOrderedBy.TabIndex = 48;
+            this.lblOrderedBy.Text = "Sipariş Eden";
+            // 
+            // txtRequest
+            // 
+            this.txtRequest.Location = new System.Drawing.Point(585, 171);
+            this.txtRequest.Name = "txtRequest";
+            this.txtRequest.Properties.MaxLength = 50;
+            this.txtRequest.Size = new System.Drawing.Size(151, 20);
+            this.txtRequest.TabIndex = 13;
+            // 
+            // lblRequested
+            // 
+            this.lblRequested.Location = new System.Drawing.Point(523, 174);
+            this.lblRequested.Name = "lblRequested";
+            this.lblRequested.Size = new System.Drawing.Size(53, 13);
+            this.lblRequested.TabIndex = 46;
+            this.lblRequested.Text = "Talep Eden";
             // 
             // txtTaxRate
             // 
-            this.txtTaxRate.Location = new System.Drawing.Point(73, 179);
+            this.txtTaxRate.EditValue = "18";
+            this.txtTaxRate.Location = new System.Drawing.Point(309, 171);
             this.txtTaxRate.Name = "txtTaxRate";
-            this.txtTaxRate.Size = new System.Drawing.Size(118, 20);
-            this.txtTaxRate.TabIndex = 7;
+            this.txtTaxRate.Size = new System.Drawing.Size(62, 20);
+            this.txtTaxRate.TabIndex = 11;
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(73, 127);
+            this.txtSerie.Location = new System.Drawing.Point(73, 119);
             this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Size = new System.Drawing.Size(118, 20);
-            this.txtSerie.TabIndex = 1;
+            this.txtSerie.Properties.MaxLength = 3;
+            this.txtSerie.Size = new System.Drawing.Size(146, 20);
+            this.txtSerie.TabIndex = 2;
             // 
             // txtRefNo
             // 
-            this.txtRefNo.Location = new System.Drawing.Point(473, 153);
+            this.txtRefNo.Location = new System.Drawing.Point(585, 145);
             this.txtRefNo.Name = "txtRefNo";
-            this.txtRefNo.Size = new System.Drawing.Size(176, 20);
-            this.txtRefNo.TabIndex = 6;
+            this.txtRefNo.Properties.MaxLength = 25;
+            this.txtRefNo.Size = new System.Drawing.Size(151, 20);
+            this.txtRefNo.TabIndex = 8;
             // 
             // txtNo
             // 
-            this.txtNo.Location = new System.Drawing.Point(281, 127);
+            this.txtNo.Location = new System.Drawing.Point(309, 119);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(128, 20);
-            this.txtNo.TabIndex = 2;
+            this.txtNo.Size = new System.Drawing.Size(194, 20);
+            this.txtNo.TabIndex = 3;
             // 
             // cmbCustomers
             // 
             this.cmbCustomers.EditValue = "";
-            this.cmbCustomers.Location = new System.Drawing.Point(473, 127);
+            this.cmbCustomers.Location = new System.Drawing.Point(309, 145);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.False;
             this.cmbCustomers.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
@@ -229,24 +343,25 @@
             this.cmbCustomers.Properties.DisplayMember = "CustomerName";
             this.cmbCustomers.Properties.NullText = "";
             this.cmbCustomers.Properties.ValueMember = "CustomerId";
-            this.cmbCustomers.Size = new System.Drawing.Size(176, 20);
-            this.cmbCustomers.TabIndex = 3;
+            this.cmbCustomers.Size = new System.Drawing.Size(194, 20);
+            this.cmbCustomers.TabIndex = 7;
+            this.cmbCustomers.DoubleClick += new System.EventHandler(this.CmbCustomers_DoubleClick);
             // 
             // dtpDate
             // 
             this.dtpDate.EditValue = null;
-            this.dtpDate.Location = new System.Drawing.Point(73, 153);
+            this.dtpDate.Location = new System.Drawing.Point(73, 145);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpDate.Size = new System.Drawing.Size(118, 20);
-            this.dtpDate.TabIndex = 4;
+            this.dtpDate.Size = new System.Drawing.Size(146, 20);
+            this.dtpDate.TabIndex = 6;
             // 
             // cmbWithholding
             // 
-            this.cmbWithholding.Location = new System.Drawing.Point(281, 179);
+            this.cmbWithholding.Location = new System.Drawing.Point(451, 171);
             this.cmbWithholding.Name = "cmbWithholding";
             this.cmbWithholding.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cmbWithholding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -263,76 +378,75 @@
             "8",
             "9"});
             this.cmbWithholding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbWithholding.Size = new System.Drawing.Size(128, 20);
-            this.cmbWithholding.TabIndex = 8;
+            this.cmbWithholding.Size = new System.Drawing.Size(52, 20);
+            this.cmbWithholding.TabIndex = 12;
             // 
-            // labelControl8
+            // lblWithholding
             // 
-            this.labelControl8.Location = new System.Drawing.Point(207, 182);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(68, 13);
-            this.labelControl8.TabIndex = 44;
-            this.labelControl8.Text = "Tevkifat Oranı";
+            this.lblWithholding.Location = new System.Drawing.Point(377, 174);
+            this.lblWithholding.Name = "lblWithholding";
+            this.lblWithholding.Size = new System.Drawing.Size(68, 13);
+            this.lblWithholding.TabIndex = 44;
+            this.lblWithholding.Text = "Tevkifat Oranı";
             // 
-            // labelControl7
+            // lblTaxRate
             // 
-            this.labelControl7.Location = new System.Drawing.Point(11, 182);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(56, 13);
-            this.labelControl7.TabIndex = 43;
-            this.labelControl7.Text = "K.D.V Oranı";
+            this.lblTaxRate.Location = new System.Drawing.Point(246, 174);
+            this.lblTaxRate.Name = "lblTaxRate";
+            this.lblTaxRate.Size = new System.Drawing.Size(56, 13);
+            this.lblTaxRate.TabIndex = 43;
+            this.lblTaxRate.Text = "K.D.V Oranı";
             // 
-            // labelControl6
+            // lblExpiry
             // 
-            this.labelControl6.Location = new System.Drawing.Point(221, 156);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(51, 13);
-            this.labelControl6.TabIndex = 42;
-            this.labelControl6.Text = "Vade(Gün)";
+            this.lblExpiry.Location = new System.Drawing.Point(525, 122);
+            this.lblExpiry.Name = "lblExpiry";
+            this.lblExpiry.Size = new System.Drawing.Size(51, 13);
+            this.lblExpiry.TabIndex = 42;
+            this.lblExpiry.Text = "Vade(Gün)";
             // 
-            // labelControl5
+            // lblRefNo
             // 
-            this.labelControl5.Location = new System.Drawing.Point(433, 156);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(34, 13);
-            this.labelControl5.TabIndex = 41;
-            this.labelControl5.Text = "Ref.No";
+            this.lblRefNo.Location = new System.Drawing.Point(542, 148);
+            this.lblRefNo.Name = "lblRefNo";
+            this.lblRefNo.Size = new System.Drawing.Size(34, 13);
+            this.lblRefNo.TabIndex = 41;
+            this.lblRefNo.Text = "Ref.No";
             // 
-            // labelControl4
+            // lblDate
             // 
-            this.labelControl4.Location = new System.Drawing.Point(11, 156);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(56, 13);
-            this.labelControl4.TabIndex = 40;
-            this.labelControl4.Text = "Evrak Tarihi";
+            this.lblDate.Location = new System.Drawing.Point(11, 148);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(56, 13);
+            this.lblDate.TabIndex = 40;
+            this.lblDate.Text = "Evrak Tarihi";
             // 
-            // labelControl3
+            // lblCustomer
             // 
-            this.labelControl3.Location = new System.Drawing.Point(432, 130);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(35, 13);
-            this.labelControl3.TabIndex = 39;
-            this.labelControl3.Text = "Müşteri";
+            this.lblCustomer.Location = new System.Drawing.Point(267, 148);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(35, 13);
+            this.lblCustomer.TabIndex = 39;
+            this.lblCustomer.Text = "Müşteri";
             // 
-            // labelControl2
+            // lblNo
             // 
-            this.labelControl2.Location = new System.Drawing.Point(227, 130);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(47, 13);
-            this.labelControl2.TabIndex = 38;
-            this.labelControl2.Text = "Evrak No.";
+            this.lblNo.Location = new System.Drawing.Point(255, 122);
+            this.lblNo.Name = "lblNo";
+            this.lblNo.Size = new System.Drawing.Size(47, 13);
+            this.lblNo.TabIndex = 38;
+            this.lblNo.Text = "Evrak No.";
             // 
-            // labelControl1
+            // lblSerie
             // 
-            this.labelControl1.Location = new System.Drawing.Point(19, 130);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 13);
-            this.labelControl1.TabIndex = 37;
-            this.labelControl1.Text = "Evrak Seri";
+            this.lblSerie.Location = new System.Drawing.Point(19, 122);
+            this.lblSerie.Name = "lblSerie";
+            this.lblSerie.Size = new System.Drawing.Size(48, 13);
+            this.lblSerie.TabIndex = 37;
+            this.lblSerie.Text = "Evrak Seri";
             // 
             // barForNew
             // 
-            this.barForNew.AllowDrag = false;
             this.barForNew.Dock = System.Windows.Forms.DockStyle.Top;
             this.barForNew.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.barForNew.Groups.Add(this.tileBarGroup2);
@@ -341,7 +455,7 @@
             this.barForNew.MaxId = 5;
             this.barForNew.Name = "barForNew";
             this.barForNew.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.barForNew.Size = new System.Drawing.Size(875, 80);
+            this.barForNew.Size = new System.Drawing.Size(992, 80);
             this.barForNew.TabIndex = 33;
             this.barForNew.Text = "tileBar1";
             this.barForNew.WideTileWidth = 130;
@@ -364,10 +478,10 @@
             this.tbtnSave.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnSave.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnSave.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement5.Text = "Kaydet";
-            this.tbtnSave.Elements.Add(tileItemElement5);
+            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileItemElement1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement1.Text = "Kaydet";
+            this.tbtnSave.Elements.Add(tileItemElement1);
             this.tbtnSave.Id = 0;
             this.tbtnSave.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnSave.Name = "tbtnSave";
@@ -384,10 +498,10 @@
             this.tbtnPrint.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnPrint.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnPrint.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement6.Text = "Yazdır";
-            this.tbtnPrint.Elements.Add(tileItemElement6);
+            tileItemElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            tileItemElement2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement2.Text = "Yazdır";
+            this.tbtnPrint.Elements.Add(tileItemElement2);
             this.tbtnPrint.Id = 4;
             this.tbtnPrint.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnPrint.Name = "tbtnPrint";
@@ -404,10 +518,10 @@
             this.tbtnDesign.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnDesign.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnDesign.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            tileItemElement7.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement7.Text = "Dizayn";
-            this.tbtnDesign.Elements.Add(tileItemElement7);
+            tileItemElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            tileItemElement3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement3.Text = "Dizayn";
+            this.tbtnDesign.Elements.Add(tileItemElement3);
             this.tbtnDesign.Id = 3;
             this.tbtnDesign.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnDesign.Name = "tbtnDesign";
@@ -416,17 +530,15 @@
             // grdBill
             // 
             this.grdBill.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdBill.Location = new System.Drawing.Point(0, 210);
+            this.grdBill.Location = new System.Drawing.Point(0, 197);
             this.grdBill.MainView = this.vwBill;
             this.grdBill.Name = "grdBill";
             this.grdBill.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lookupProduct});
-            this.grdBill.Size = new System.Drawing.Size(875, 316);
-            this.grdBill.TabIndex = 8;
+            this.grdBill.Size = new System.Drawing.Size(992, 329);
+            this.grdBill.TabIndex = 15;
             this.grdBill.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.vwBill,
-            this.gridView1,
-            this.gridView2});
+            this.vwBill});
             // 
             // vwBill
             // 
@@ -466,6 +578,7 @@
             this.lookupProduct.Name = "lookupProduct";
             this.lookupProduct.NullText = "";
             this.lookupProduct.ValueMember = "ProductId";
+            this.lookupProduct.DoubleClick += new System.EventHandler(this.lookupProduct_DoubleClick);
             // 
             // colQuantity
             // 
@@ -485,15 +598,12 @@
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 2;
             // 
-            // gridView1
+            // dtpExpiry
             // 
-            this.gridView1.GridControl = this.grdBill;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.grdBill;
-            this.gridView2.Name = "gridView2";
+            this.dtpExpiry.Location = new System.Drawing.Point(585, 119);
+            this.dtpExpiry.Name = "dtpExpiry";
+            this.dtpExpiry.Size = new System.Drawing.Size(151, 20);
+            this.dtpExpiry.TabIndex = 4;
             // 
             // tabBillList
             // 
@@ -502,7 +612,7 @@
             this.tabBillList.Controls.Add(this.barForList);
             this.tabBillList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabBillList.ImageOptions.Image")));
             this.tabBillList.Name = "tabBillList";
-            this.tabBillList.Size = new System.Drawing.Size(875, 526);
+            this.tabBillList.Size = new System.Drawing.Size(992, 526);
             // 
             // gridBillList
             // 
@@ -511,8 +621,9 @@
             this.gridBillList.MainView = this.vwBillList;
             this.gridBillList.Name = "gridBillList";
             this.gridBillList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.lookupCustomer});
-            this.gridBillList.Size = new System.Drawing.Size(875, 447);
+            this.lookupCustomer,
+            this.grdcmbTypes});
+            this.gridBillList.Size = new System.Drawing.Size(992, 447);
             this.gridBillList.TabIndex = 1;
             this.gridBillList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vwBillList});
@@ -521,16 +632,23 @@
             // 
             this.vwBillList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colBillDate,
+            this.colType,
             this.colSerie,
             this.colNo,
             this.colCustomer,
             this.colExpiry,
+            this.colTaxRate,
             this.colWithholding,
-            this.colTotalAmount});
+            this.colTaxAmount,
+            this.colTotal,
+            this.colTotalWithTax});
             this.vwBillList.GridControl = this.gridBillList;
             this.vwBillList.Name = "vwBillList";
             this.vwBillList.OptionsBehavior.ReadOnly = true;
             this.vwBillList.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Fast;
+            this.vwBillList.OptionsView.ShowAutoFilterRow = true;
+            this.vwBillList.OptionsView.ShowFooter = true;
+            this.vwBillList.PrintInitialize += new DevExpress.XtraGrid.Views.Base.PrintInitializeEventHandler(this.VwBillList_PrintInitialize);
             // 
             // colBillDate
             // 
@@ -542,6 +660,28 @@
             this.colBillDate.Visible = true;
             this.colBillDate.VisibleIndex = 0;
             // 
+            // colType
+            // 
+            this.colType.Caption = "Fatura Tipi";
+            this.colType.ColumnEdit = this.grdcmbTypes;
+            this.colType.FieldName = "InvoiceType";
+            this.colType.Name = "colType";
+            this.colType.OptionsColumn.AllowEdit = false;
+            this.colType.OptionsColumn.AllowFocus = false;
+            this.colType.Visible = true;
+            this.colType.VisibleIndex = 1;
+            this.colType.Width = 80;
+            // 
+            // grdcmbTypes
+            // 
+            this.grdcmbTypes.AutoHeight = false;
+            this.grdcmbTypes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.grdcmbTypes.DisplayMember = "Value";
+            this.grdcmbTypes.Name = "grdcmbTypes";
+            this.grdcmbTypes.NullText = "";
+            this.grdcmbTypes.ValueMember = "Key";
+            // 
             // colSerie
             // 
             this.colSerie.Caption = "Seri";
@@ -550,7 +690,7 @@
             this.colSerie.OptionsColumn.AllowEdit = false;
             this.colSerie.OptionsColumn.AllowFocus = false;
             this.colSerie.Visible = true;
-            this.colSerie.VisibleIndex = 1;
+            this.colSerie.VisibleIndex = 2;
             // 
             // colNo
             // 
@@ -560,7 +700,7 @@
             this.colNo.OptionsColumn.AllowEdit = false;
             this.colNo.OptionsColumn.AllowFocus = false;
             this.colNo.Visible = true;
-            this.colNo.VisibleIndex = 2;
+            this.colNo.VisibleIndex = 3;
             // 
             // colCustomer
             // 
@@ -571,7 +711,8 @@
             this.colCustomer.OptionsColumn.AllowEdit = false;
             this.colCustomer.OptionsColumn.AllowFocus = false;
             this.colCustomer.Visible = true;
-            this.colCustomer.VisibleIndex = 3;
+            this.colCustomer.VisibleIndex = 4;
+            this.colCustomer.Width = 183;
             // 
             // lookupCustomer
             // 
@@ -579,19 +720,32 @@
             this.lookupCustomer.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lookupCustomer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookupCustomer.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CustomerName", "Müşteri")});
             this.lookupCustomer.DisplayMember = "CustomerName";
             this.lookupCustomer.Name = "lookupCustomer";
+            this.lookupCustomer.NullText = "";
             this.lookupCustomer.ValueMember = "CustomerId";
             // 
             // colExpiry
             // 
             this.colExpiry.Caption = "Vade";
-            this.colExpiry.FieldName = "ExpiryDate";
+            this.colExpiry.FieldName = "ExpiryPeriod";
             this.colExpiry.Name = "colExpiry";
             this.colExpiry.OptionsColumn.AllowEdit = false;
             this.colExpiry.OptionsColumn.AllowFocus = false;
             this.colExpiry.Visible = true;
-            this.colExpiry.VisibleIndex = 4;
+            this.colExpiry.VisibleIndex = 5;
+            // 
+            // colTaxRate
+            // 
+            this.colTaxRate.Caption = "K.D.V Oranı";
+            this.colTaxRate.FieldName = "TaxRate";
+            this.colTaxRate.Name = "colTaxRate";
+            this.colTaxRate.OptionsColumn.AllowEdit = false;
+            this.colTaxRate.OptionsColumn.AllowFocus = false;
+            this.colTaxRate.Visible = true;
+            this.colTaxRate.VisibleIndex = 6;
             // 
             // colWithholding
             // 
@@ -601,35 +755,70 @@
             this.colWithholding.OptionsColumn.AllowEdit = false;
             this.colWithholding.OptionsColumn.AllowFocus = false;
             this.colWithholding.Visible = true;
-            this.colWithholding.VisibleIndex = 5;
+            this.colWithholding.VisibleIndex = 7;
             // 
-            // colTotalAmount
+            // colTaxAmount
             // 
-            this.colTotalAmount.Caption = "Tutar";
-            this.colTotalAmount.DisplayFormat.FormatString = "{0:c2}";
-            this.colTotalAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colTotalAmount.FieldName = "TotalAmount";
-            this.colTotalAmount.Name = "colTotalAmount";
-            this.colTotalAmount.Visible = true;
-            this.colTotalAmount.VisibleIndex = 6;
+            this.colTaxAmount.Caption = "K.D.V";
+            this.colTaxAmount.DisplayFormat.FormatString = "{0:c2}";
+            this.colTaxAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTaxAmount.FieldName = "colTaxAmount";
+            this.colTaxAmount.Name = "colTaxAmount";
+            this.colTaxAmount.OptionsColumn.AllowEdit = false;
+            this.colTaxAmount.OptionsColumn.AllowFocus = false;
+            this.colTaxAmount.UnboundExpression = "Iif([WithholdingRate] = 0, [TaxAmount], [TaxAmount] / 10 * (10 - [WithholdingRate" +
+    "]))";
+            this.colTaxAmount.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.colTaxAmount.Visible = true;
+            this.colTaxAmount.VisibleIndex = 8;
+            // 
+            // colTotal
+            // 
+            this.colTotal.Caption = "Net Tutar";
+            this.colTotal.DisplayFormat.FormatString = "{0:c2}";
+            this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotal.FieldName = "TotalAmount";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.OptionsColumn.AllowEdit = false;
+            this.colTotal.OptionsColumn.AllowFocus = false;
+            this.colTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalAmount", "{0:c2}")});
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 9;
+            // 
+            // colTotalWithTax
+            // 
+            this.colTotalWithTax.Caption = "Tutar";
+            this.colTotalWithTax.DisplayFormat.FormatString = "{0:c2}";
+            this.colTotalWithTax.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotalWithTax.FieldName = "colTotalWithTax";
+            this.colTotalWithTax.Name = "colTotalWithTax";
+            this.colTotalWithTax.OptionsColumn.AllowEdit = false;
+            this.colTotalWithTax.OptionsColumn.AllowFocus = false;
+            this.colTotalWithTax.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "colTotalWithTax", "{0:c2}")});
+            this.colTotalWithTax.UnboundExpression = "[TotalAmount] + [colTaxAmount]";
+            this.colTotalWithTax.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.colTotalWithTax.Visible = true;
+            this.colTotalWithTax.VisibleIndex = 10;
             // 
             // barForList
             // 
-            this.barForList.AllowDrag = false;
             this.barForList.Dock = System.Windows.Forms.DockStyle.Top;
             this.barForList.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.barForList.Groups.Add(this.tileBarGroup3);
             this.barForList.ItemSize = 44;
             this.barForList.Location = new System.Drawing.Point(0, 0);
-            this.barForList.MaxId = 1;
+            this.barForList.MaxId = 2;
             this.barForList.Name = "barForList";
             this.barForList.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.barForList.Size = new System.Drawing.Size(875, 79);
+            this.barForList.Size = new System.Drawing.Size(992, 79);
             this.barForList.TabIndex = 0;
             // 
             // tileBarGroup3
             // 
             this.tileBarGroup3.Items.Add(this.tbtnGoTo);
+            this.tileBarGroup3.Items.Add(this.tbtnPrintList);
             this.tileBarGroup3.Name = "tileBarGroup3";
             // 
             // tbtnGoTo
@@ -643,18 +832,37 @@
             this.tbtnGoTo.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnGoTo.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnGoTo.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            tileItemElement8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement8.Text = "Seçili Evrağa Git";
-            this.tbtnGoTo.Elements.Add(tileItemElement8);
+            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement4.Text = "Seçili Evrağa Git";
+            this.tbtnGoTo.Elements.Add(tileItemElement4);
             this.tbtnGoTo.Id = 0;
             this.tbtnGoTo.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnGoTo.Name = "tbtnGoTo";
             this.tbtnGoTo.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnGoTo_ItemClick);
             // 
+            // tbtnPrintList
+            // 
+            this.tbtnPrintList.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
+            this.tbtnPrintList.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tbtnPrintList.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
+            this.tbtnPrintList.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tbtnPrintList.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tbtnPrintList.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tbtnPrintList.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
+            this.tbtnPrintList.AppearanceItem.Pressed.Options.UseBackColor = true;
+            this.tbtnPrintList.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement5.Text = "Listeyi Yazdır";
+            this.tbtnPrintList.Elements.Add(tileItemElement5);
+            this.tbtnPrintList.Id = 1;
+            this.tbtnPrintList.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tbtnPrintList.Name = "tbtnPrintList";
+            this.tbtnPrintList.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.TbtnPrintList_ItemClick);
+            // 
             // tabPanel
             // 
-            this.tabPanel.AllowCollapse = DevExpress.Utils.DefaultBoolean.Default;
             this.tabPanel.Controls.Add(this.tabBillList);
             this.tabPanel.Controls.Add(this.tabNewBill);
             this.tabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -664,132 +872,37 @@
             this.tabPanel.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabBillList,
             this.tabNewBill});
-            this.tabPanel.RegularSize = new System.Drawing.Size(875, 572);
+            this.tabPanel.RegularSize = new System.Drawing.Size(992, 572);
             this.tabPanel.SelectedPage = this.tabBillList;
-            this.tabPanel.Size = new System.Drawing.Size(875, 572);
+            this.tabPanel.Size = new System.Drawing.Size(992, 572);
             this.tabPanel.TabIndex = 37;
             this.tabPanel.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.tabPanel_SelectedPageChanged);
-            // 
-            // dtpExpiry
-            // 
-            this.dtpExpiry.Location = new System.Drawing.Point(281, 153);
-            this.dtpExpiry.Name = "dtpExpiry";
-            this.dtpExpiry.Properties.DisplayFormat.FormatString = "d";
-            this.dtpExpiry.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpExpiry.Properties.EditFormat.FormatString = "d";
-            this.dtpExpiry.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpExpiry.Properties.Mask.EditMask = "d";
-            this.dtpExpiry.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            this.dtpExpiry.Size = new System.Drawing.Size(128, 20);
-            this.dtpExpiry.TabIndex = 5;
-            // 
-            // txtRequest
-            // 
-            this.txtRequest.Location = new System.Drawing.Point(473, 179);
-            this.txtRequest.Name = "txtRequest";
-            this.txtRequest.Size = new System.Drawing.Size(176, 20);
-            this.txtRequest.TabIndex = 45;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(414, 182);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(53, 13);
-            this.labelControl9.TabIndex = 46;
-            this.labelControl9.Text = "Talep Eden";
-            // 
-            // txtOrderedBy
-            // 
-            this.txtOrderedBy.Location = new System.Drawing.Point(719, 127);
-            this.txtOrderedBy.Name = "txtOrderedBy";
-            this.txtOrderedBy.Size = new System.Drawing.Size(132, 20);
-            this.txtOrderedBy.TabIndex = 47;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(655, 130);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(58, 13);
-            this.labelControl10.TabIndex = 48;
-            this.labelControl10.Text = "Sipariş Eden";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(669, 156);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(44, 13);
-            this.labelControl11.TabIndex = 50;
-            this.labelControl11.Text = "Sip.Tarihi";
-            // 
-            // dtpOrderDate
-            // 
-            this.dtpOrderDate.EditValue = null;
-            this.dtpOrderDate.Location = new System.Drawing.Point(719, 153);
-            this.dtpOrderDate.Name = "dtpOrderDate";
-            this.dtpOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpOrderDate.Properties.DisplayFormat.FormatString = "";
-            this.dtpOrderDate.Properties.EditFormat.FormatString = "";
-            this.dtpOrderDate.Properties.Mask.EditMask = "";
-            this.dtpOrderDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.dtpOrderDate.Size = new System.Drawing.Size(132, 20);
-            this.dtpOrderDate.TabIndex = 49;
-            // 
-            // txtOrderNo
-            // 
-            this.txtOrderNo.Location = new System.Drawing.Point(719, 179);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(132, 20);
-            this.txtOrderNo.TabIndex = 51;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(662, 182);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(51, 13);
-            this.labelControl12.TabIndex = 52;
-            this.labelControl12.Text = "Sipariş No.";
-            // 
-            // cmbInvoiceType
-            // 
-            this.cmbInvoiceType.Location = new System.Drawing.Point(73, 86);
-            this.cmbInvoiceType.Name = "cmbInvoiceType";
-            this.cmbInvoiceType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbInvoiceType.Properties.Items.AddRange(new object[] {
-            "Satış Faturası",
-            "Alış Faturası"});
-            this.cmbInvoiceType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbInvoiceType.Size = new System.Drawing.Size(118, 20);
-            this.cmbInvoiceType.TabIndex = 53;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Location = new System.Drawing.Point(19, 89);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(46, 13);
-            this.labelControl13.TabIndex = 54;
-            this.labelControl13.Text = "Evrak Tipi";
             // 
             // frmInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 572);
+            this.ClientSize = new System.Drawing.Size(992, 572);
             this.Controls.Add(this.tabPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmInvoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fatura";
+            this.Activated += new System.EventHandler(this.FrmInvoice_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBill_FormClosed);
             this.Load += new System.EventHandler(this.frmBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repocmbWithholding)).EndInit();
             this.tabNewBill.ResumeLayout(false);
             this.tabNewBill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWaybillNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInvoiceType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrderedBy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRequest.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRefNo.Properties)).EndInit();
@@ -801,21 +914,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpExpiry.Properties)).EndInit();
             this.tabBillList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridBillList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwBillList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdcmbTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPanel)).EndInit();
             this.tabPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtpExpiry.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRequest.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOrderedBy.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpOrderDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtOrderNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbInvoiceType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -831,14 +937,14 @@
         private DevExpress.XtraEditors.LookUpEdit cmbCustomers;
         private DevExpress.XtraEditors.DateEdit dtpDate;
         private DevExpress.XtraEditors.ComboBoxEdit cmbWithholding;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblWithholding;
+        private DevExpress.XtraEditors.LabelControl lblTaxRate;
+        private DevExpress.XtraEditors.LabelControl lblExpiry;
+        private DevExpress.XtraEditors.LabelControl lblRefNo;
+        private DevExpress.XtraEditors.LabelControl lblDate;
+        private DevExpress.XtraEditors.LabelControl lblCustomer;
+        private DevExpress.XtraEditors.LabelControl lblNo;
+        private DevExpress.XtraEditors.LabelControl lblSerie;
         private DevExpress.XtraBars.Navigation.TileBar barForNew;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnSave;
@@ -848,8 +954,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lookupProduct;
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabBillList;
         private DevExpress.XtraGrid.GridControl gridBillList;
         private DevExpress.XtraBars.Navigation.TileBar barForList;
@@ -866,17 +970,25 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnGoTo;
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnDesign;
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnPrint;
-        private DevExpress.XtraGrid.Columns.GridColumn colTotalAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalWithTax;
         private DevExpress.XtraEditors.TextEdit dtpExpiry;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.ComboBoxEdit cmbInvoiceType;
         private DevExpress.XtraEditors.TextEdit txtOrderNo;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lblOrderNo;
+        private DevExpress.XtraEditors.LabelControl lblOrderDate;
         private DevExpress.XtraEditors.TextEdit txtOrderedBy;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl lblOrderedBy;
         private DevExpress.XtraEditors.TextEdit txtRequest;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl lblRequested;
+        private DevExpress.XtraGrid.Columns.GridColumn colType;
+        private DevExpress.XtraGrid.Columns.GridColumn colTaxRate;
+        private DevExpress.XtraGrid.Columns.GridColumn colTaxAmount;
+        private DevExpress.XtraBars.Navigation.TileBarItem tbtnPrintList;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit grdcmbTypes;
+        private DevExpress.XtraEditors.TextEdit txtWaybillNo;
+        private DevExpress.XtraEditors.LabelControl lblWaybillNo;
         private DevExpress.XtraEditors.DateEdit dtpOrderDate;
     }
 }

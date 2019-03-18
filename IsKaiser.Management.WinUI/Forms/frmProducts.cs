@@ -14,7 +14,7 @@ using IsKaiser.Management.Entities.Concrete;
 
 namespace IsKaiser.Management.WinUI.Forms
 {
-    public partial class frmProducts : DevExpress.XtraEditors.XtraForm
+    public partial class frmProducts : XtraForm
     {
         IProductTypeService _productTypeService;
         IProductService _productService;
@@ -31,10 +31,16 @@ namespace IsKaiser.Management.WinUI.Forms
             PopulateComboBox();
         }
 
-        private void tbtnSave_ItemClick(object sender, TileItemEventArgs e)
+        void PopulateComboBox()
+        {
+            cmbProductType.Properties.DataSource = _productTypeService.GetList();
+            cmbProductType.Properties.ValueMember = "Type";
+            cmbProductType.Properties.DisplayMember = "Type";
+        }
+        void SaveProduct()
         {
             var searchForValue = _productTypeService.GetByName(cmbProductType.Text);
-            if (searchForValue==null)
+            if (searchForValue == null)
             {
                 _productTypeService.Add(new ProductType { Type = cmbProductType.Text });
                 PopulateComboBox();
@@ -43,21 +49,15 @@ namespace IsKaiser.Management.WinUI.Forms
             {
                 ProductName = txtProductName.Text,
                 ProductDescription = txtDescription.Text,
-                ProductType=Convert.ToInt16(cmbProductType.GetColumnValue("TypeId"))
+                ProductType = Convert.ToInt16(cmbProductType.GetColumnValue("TypeId"))
             };
             _productService.Add(product);
+            XtraMessageBox.Show("Ürün Eklendi.");
         }
 
-        private void frmProducts_FormClosing(object sender, FormClosingEventArgs e)
+        private void TbtnSave_ItemClick(object sender, TileItemEventArgs e)
         {
-            frmMenu frMenu = new frmMenu();
-            frMenu.Show();
-        }
-        void PopulateComboBox()
-        {
-            cmbProductType.Properties.DataSource = _productTypeService.GetList();
-            cmbProductType.Properties.ValueMember = "Type";
-            cmbProductType.Properties.DisplayMember = "Type";
+            SaveProduct();
         }
     }
 }
