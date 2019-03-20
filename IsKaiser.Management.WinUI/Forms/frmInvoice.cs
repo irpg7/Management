@@ -37,7 +37,6 @@ namespace IsKaiser.Management.WinUI.Forms
             invoiceType.Add(0, "Satış Faturası");
             invoiceType.Add(1, "Alış Faturası");
             cmbInvoiceType.Properties.Items.AddRange(invoiceType.Values);
-
             grdcmbTypes.DataSource = invoiceType;
             cmbInvoiceType.SelectedIndex = 0;
             cmbWithholding.SelectedIndex = 0;
@@ -93,6 +92,7 @@ namespace IsKaiser.Management.WinUI.Forms
                 XtraMessageBox.Show("Kayıt Edildi.");
                 invoiceId = recToAdd.InvoiceId;
                 tbtnSave.Enabled = false;
+                tbtnAttachments.Visible = true;
             });
         }
 
@@ -104,6 +104,7 @@ namespace IsKaiser.Management.WinUI.Forms
                 tabNewBill.Caption = "Yeni Fatura";
                 NewBill();
             }
+            
         }
         int invoiceId;
         private void tbtnGoTo_ItemClick(object sender, TileItemEventArgs e)
@@ -143,6 +144,7 @@ namespace IsKaiser.Management.WinUI.Forms
                 colQuantity.OptionsColumn.AllowFocus = false;
                 colUnitPrice.OptionsColumn.AllowFocus = false;
                 tbtnSave.Enabled = false;
+                tbtnAttachments.Visible = true;
             });
         }
         void NewBill()
@@ -171,6 +173,7 @@ namespace IsKaiser.Management.WinUI.Forms
             colQuantity.OptionsColumn.AllowFocus = true;
             colUnitPrice.OptionsColumn.AllowFocus = true;
             tbtnSave.Enabled = true;
+            tbtnAttachments.Visible = false;
         }
 
         private void tbtnDesign_ItemClick(object sender, TileItemEventArgs e)
@@ -264,6 +267,21 @@ namespace IsKaiser.Management.WinUI.Forms
         {
             PrintingSystemBase printingSystemBase = e.PrintingSystem as PrintingSystemBase;
             printingSystemBase.PageSettings.Landscape = true;
+        }
+
+        private void TbtnAttachments_ItemClick(object sender, TileItemEventArgs e)
+        {
+            tbtnAttachments.ShowDropDown();
+        }
+
+        private void TbtnAdd_ItemClick(object sender, TileItemEventArgs e)
+        {
+
+        }
+
+        private void TbtnShow_ItemClick(object sender, TileItemEventArgs e)
+        {
+
         }
     }
 }

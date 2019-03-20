@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repocmbWithholding = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.tabNewBill = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -70,6 +72,7 @@
             this.tbtnSave = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tbtnPrint = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tbtnDesign = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tbtnAttachments = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.grdBill = new DevExpress.XtraGrid.GridControl();
             this.vwBill = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProduct = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -98,7 +101,11 @@
             this.tbtnGoTo = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tbtnPrintList = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tabPanel = new DevExpress.XtraBars.Navigation.TabPane();
-            this.tbtnAttachments = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.drpdwnAttachments = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
+            this.tbAttachments = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tbgrpAttachments = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tbtnShow = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tbtnAdd = new DevExpress.XtraBars.Navigation.TileBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repocmbWithholding)).BeginInit();
             this.tabNewBill.SuspendLayout();
@@ -128,6 +135,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPanel)).BeginInit();
             this.tabPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drpdwnAttachments)).BeginInit();
+            this.drpdwnAttachments.SuspendLayout();
             this.SuspendLayout();
             // 
             // repositoryItemLookUpEdit1
@@ -163,6 +172,7 @@
             // tabNewBill
             // 
             this.tabNewBill.Caption = "Yeni Fatura";
+            this.tabNewBill.Controls.Add(this.drpdwnAttachments);
             this.tabNewBill.Controls.Add(this.dtpOrderDate);
             this.tabNewBill.Controls.Add(this.txtWaybillNo);
             this.tabNewBill.Controls.Add(this.lblWaybillNo);
@@ -481,10 +491,10 @@
             this.tbtnSave.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnSave.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnSave.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement1.Text = "Kaydet";
-            this.tbtnSave.Elements.Add(tileItemElement1);
+            tileItemElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            tileItemElement3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement3.Text = "Kaydet";
+            this.tbtnSave.Elements.Add(tileItemElement3);
             this.tbtnSave.Id = 0;
             this.tbtnSave.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnSave.Name = "tbtnSave";
@@ -501,10 +511,10 @@
             this.tbtnPrint.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnPrint.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnPrint.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            tileItemElement2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement2.Text = "Yazdır";
-            this.tbtnPrint.Elements.Add(tileItemElement2);
+            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement4.Text = "Yazdır";
+            this.tbtnPrint.Elements.Add(tileItemElement4);
             this.tbtnPrint.Id = 4;
             this.tbtnPrint.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnPrint.Name = "tbtnPrint";
@@ -521,14 +531,35 @@
             this.tbtnDesign.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnDesign.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnDesign.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            tileItemElement3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement3.Text = "Dizayn";
-            this.tbtnDesign.Elements.Add(tileItemElement3);
+            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement5.Text = "Dizayn";
+            this.tbtnDesign.Elements.Add(tileItemElement5);
             this.tbtnDesign.Id = 3;
             this.tbtnDesign.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnDesign.Name = "tbtnDesign";
             this.tbtnDesign.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnDesign_ItemClick);
+            // 
+            // tbtnAttachments
+            // 
+            this.tbtnAttachments.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
+            this.tbtnAttachments.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tbtnAttachments.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
+            this.tbtnAttachments.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tbtnAttachments.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tbtnAttachments.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tbtnAttachments.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
+            this.tbtnAttachments.AppearanceItem.Pressed.Options.UseBackColor = true;
+            this.tbtnAttachments.DropDownControl = this.drpdwnAttachments;
+            this.tbtnAttachments.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement6.Text = "Ekler";
+            this.tbtnAttachments.Elements.Add(tileItemElement6);
+            this.tbtnAttachments.Id = 5;
+            this.tbtnAttachments.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tbtnAttachments.Name = "tbtnAttachments";
+            this.tbtnAttachments.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.TbtnAttachments_ItemClick);
             // 
             // grdBill
             // 
@@ -835,10 +866,10 @@
             this.tbtnGoTo.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnGoTo.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnGoTo.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement5.Text = "Seçili Evrağa Git";
-            this.tbtnGoTo.Elements.Add(tileItemElement5);
+            tileItemElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            tileItemElement7.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement7.Text = "Seçili Evrağa Git";
+            this.tbtnGoTo.Elements.Add(tileItemElement7);
             this.tbtnGoTo.Id = 0;
             this.tbtnGoTo.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnGoTo.Name = "tbtnGoTo";
@@ -855,10 +886,10 @@
             this.tbtnPrintList.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
             this.tbtnPrintList.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tbtnPrintList.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement6.Text = "Listeyi Yazdır";
-            this.tbtnPrintList.Elements.Add(tileItemElement6);
+            tileItemElement8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+            tileItemElement8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement8.Text = "Listeyi Yazdır";
+            this.tbtnPrintList.Elements.Add(tileItemElement8);
             this.tbtnPrintList.Id = 1;
             this.tbtnPrintList.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnPrintList.Name = "tbtnPrintList";
@@ -881,24 +912,77 @@
             this.tabPanel.TabIndex = 37;
             this.tabPanel.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.tabPanel_SelectedPageChanged);
             // 
-            // tbtnAttachments
+            // drpdwnAttachments
             // 
-            this.tbtnAttachments.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
-            this.tbtnAttachments.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tbtnAttachments.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
-            this.tbtnAttachments.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tbtnAttachments.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tbtnAttachments.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tbtnAttachments.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
-            this.tbtnAttachments.AppearanceItem.Pressed.Options.UseBackColor = true;
-            this.tbtnAttachments.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement4.Text = "Ekler";
-            this.tbtnAttachments.Elements.Add(tileItemElement4);
-            this.tbtnAttachments.Id = 5;
-            this.tbtnAttachments.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tbtnAttachments.Name = "tbtnAttachments";
+            this.drpdwnAttachments.AutoSize = true;
+            this.drpdwnAttachments.Controls.Add(this.tbAttachments);
+            this.drpdwnAttachments.Location = new System.Drawing.Point(585, 13);
+            this.drpdwnAttachments.Name = "drpdwnAttachments";
+            this.drpdwnAttachments.Size = new System.Drawing.Size(241, 55);
+            this.drpdwnAttachments.TabIndex = 38;
+            // 
+            // tbAttachments
+            // 
+            this.tbAttachments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbAttachments.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tbAttachments.Groups.Add(this.tbgrpAttachments);
+            this.tbAttachments.IndentBetweenItems = 5;
+            this.tbAttachments.ItemSize = 30;
+            this.tbAttachments.Location = new System.Drawing.Point(0, 0);
+            this.tbAttachments.MaxId = 2;
+            this.tbAttachments.Name = "tbAttachments";
+            this.tbAttachments.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.tbAttachments.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tbAttachments.Size = new System.Drawing.Size(241, 55);
+            this.tbAttachments.TabIndex = 0;
+            this.tbAttachments.Text = "tileBar1";
+            this.tbAttachments.WideTileWidth = 110;
+            // 
+            // tbgrpAttachments
+            // 
+            this.tbgrpAttachments.Items.Add(this.tbtnAdd);
+            this.tbgrpAttachments.Items.Add(this.tbtnShow);
+            this.tbgrpAttachments.Name = "tbgrpAttachments";
+            // 
+            // tbtnShow
+            // 
+            this.tbtnShow.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
+            this.tbtnShow.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tbtnShow.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
+            this.tbtnShow.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tbtnShow.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tbtnShow.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tbtnShow.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
+            this.tbtnShow.AppearanceItem.Pressed.Options.UseBackColor = true;
+            this.tbtnShow.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            tileItemElement2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement2.Text = "Görüntüle";
+            this.tbtnShow.Elements.Add(tileItemElement2);
+            this.tbtnShow.Id = 0;
+            this.tbtnShow.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tbtnShow.Name = "tbtnShow";
+            this.tbtnShow.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.TbtnShow_ItemClick);
+            // 
+            // tbtnAdd
+            // 
+            this.tbtnAdd.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
+            this.tbtnAdd.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tbtnAdd.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
+            this.tbtnAdd.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tbtnAdd.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tbtnAdd.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tbtnAdd.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
+            this.tbtnAdd.AppearanceItem.Pressed.Options.UseBackColor = true;
+            this.tbtnAdd.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileItemElement1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement1.Text = "Ekle";
+            this.tbtnAdd.Elements.Add(tileItemElement1);
+            this.tbtnAdd.Id = 1;
+            this.tbtnAdd.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tbtnAdd.Name = "tbtnAdd";
+            this.tbtnAdd.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.TbtnAdd_ItemClick);
             // 
             // frmInvoice
             // 
@@ -944,6 +1028,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPanel)).EndInit();
             this.tabPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.drpdwnAttachments)).EndInit();
+            this.drpdwnAttachments.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1013,5 +1099,10 @@
         private DevExpress.XtraEditors.LabelControl lblWaybillNo;
         private DevExpress.XtraEditors.DateEdit dtpOrderDate;
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnAttachments;
+        private DevExpress.XtraBars.Navigation.TileBarDropDownContainer drpdwnAttachments;
+        private DevExpress.XtraBars.Navigation.TileBar tbAttachments;
+        private DevExpress.XtraBars.Navigation.TileBarGroup tbgrpAttachments;
+        private DevExpress.XtraBars.Navigation.TileBarItem tbtnShow;
+        private DevExpress.XtraBars.Navigation.TileBarItem tbtnAdd;
     }
 }
