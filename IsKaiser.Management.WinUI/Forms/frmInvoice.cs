@@ -297,7 +297,14 @@ namespace IsKaiser.Management.WinUI.Forms
 
         private void TbtnShow_ItemClick(object sender, TileItemEventArgs e)
         {
-
+            string pathToSave = Application.StartupPath + "\\Invoices\\" + txtSerie.Text + "-" + txtNo.Text + "\\";
+            if (!Directory.Exists(pathToSave))
+            {
+                XtraMessageBox.Show("Dosya Bulunamadı !");
+                return;
+            }
+            frmImageViewer frmImageViewer = new frmImageViewer(pathToSave);
+            frmImageViewer.Show();
         }
     }
 }
