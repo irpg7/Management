@@ -210,6 +210,12 @@
     <Compile Include="Forms\frmAppointmentList.Designer.cs">
       <DependentUpon>frmAppointmentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmImageViewer.Designer.cs">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     <Compile Include="Utilities\IExcelImporter.cs" />
     <EmbeddedResource Include="Forms\frmAppointmentList.resx">
       <DependentUpon>frmAppointmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmImageViewer.resx">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>

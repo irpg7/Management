@@ -9,6 +9,8 @@ using IsKaiser.Management.WinUI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -42,6 +44,7 @@ namespace IsKaiser.Management.WinUI.Forms
             cmbWithholding.SelectedIndex = 0;
             NewBill();
             FillBillList();
+            
         }
         private void frmBill_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -276,7 +279,20 @@ namespace IsKaiser.Management.WinUI.Forms
 
         private void TbtnAdd_ItemClick(object sender, TileItemEventArgs e)
         {
-
+            OpenFileDialog attachmentsDialog = new OpenFileDialog();
+            attachmentsDialog.Multiselect = true;
+            attachmentsDialog.Filter = "Resim Dosyası|*.jpg;*.png;*.jpeg";
+            string pathToSave = Application.StartupPath+"\\Invoices\\"+txtSerie.Text+"-"+txtNo.Text+"\\";
+            attachmentsDialog.ShowDialog();
+            if (!Directory.Exists(pathToSave))
+            {
+                Directory.CreateDirectory(pathToSave);
+            }
+            foreach (var img in attachmentsDialog.FileNames)
+            {
+                File.Copy(img, pathToSave+Path.GetFileName(img));
+            }
+            XtraMessageBox.Show("Eklendi!");
         }
 
         private void TbtnShow_ItemClick(object sender, TileItemEventArgs e)
