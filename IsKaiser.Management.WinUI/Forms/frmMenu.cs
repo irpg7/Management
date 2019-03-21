@@ -48,5 +48,23 @@ namespace IsKaiser.Management.WinUI.Forms
         {
 
         }
+
+        private void NavlinkEmployee_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmNewEmployee frNewEmployee = new frmNewEmployee();
+            frNewEmployee.Show();
+        }
+
+        private void NavlinkTeam_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmNewTeam frNewTeam = new frmNewTeam();
+            frNewTeam.Show();
+        }
+
+        private void NavlinkUser_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmNewUser frNewUser = new frmNewUser();
+            frNewUser.Show();
+        }
     }
 }

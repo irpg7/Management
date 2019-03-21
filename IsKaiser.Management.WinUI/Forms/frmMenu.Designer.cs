@@ -34,6 +34,10 @@
             this.navBill = new DevExpress.XtraNavBar.NavBarItem();
             this.navCustomers = new DevExpress.XtraNavBar.NavBarItem();
             this.navProducts = new DevExpress.XtraNavBar.NavBarItem();
+            this.navEmployee = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navlinkEmployee = new DevExpress.XtraNavBar.NavBarItem();
+            this.navlinkTeam = new DevExpress.XtraNavBar.NavBarItem();
+            this.navlinkUser = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,21 +46,25 @@
             this.navBarControl1.ActiveGroup = this.navMain;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navMain});
+            this.navMain,
+            this.navEmployee});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBill,
             this.navCustomers,
-            this.navProducts});
+            this.navProducts,
+            this.navlinkEmployee,
+            this.navlinkTeam,
+            this.navlinkUser});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 230;
-            this.navBarControl1.Size = new System.Drawing.Size(230, 514);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 250;
+            this.navBarControl1.Size = new System.Drawing.Size(250, 514);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
             // navMain
             // 
-            this.navMain.Caption = "Menu";
+            this.navMain.Caption = "Müşteri";
             this.navMain.Expanded = true;
             this.navMain.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBill),
@@ -85,6 +93,40 @@
             this.navProducts.Name = "navProducts";
             this.navProducts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navProducts_LinkClicked);
             // 
+            // navEmployee
+            // 
+            this.navEmployee.Caption = "Personel";
+            this.navEmployee.Expanded = true;
+            this.navEmployee.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navlinkEmployee),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navlinkTeam),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navlinkUser)});
+            this.navEmployee.Name = "navEmployee";
+            // 
+            // navlinkEmployee
+            // 
+            this.navlinkEmployee.Caption = "Temsilci";
+            this.navlinkEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem1.ImageOptions.LargeImage")));
+            this.navlinkEmployee.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem1.ImageOptions.SmallImage")));
+            this.navlinkEmployee.Name = "navlinkEmployee";
+            this.navlinkEmployee.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkEmployee_LinkClicked);
+            // 
+            // navlinkTeam
+            // 
+            this.navlinkTeam.Caption = "Ekip";
+            this.navlinkTeam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.LargeImage")));
+            this.navlinkTeam.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.SmallImage")));
+            this.navlinkTeam.Name = "navlinkTeam";
+            this.navlinkTeam.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkTeam_LinkClicked);
+            // 
+            // navlinkUser
+            // 
+            this.navlinkUser.Caption = "Kullanıcı";
+            this.navlinkUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.ImageOptions.LargeImage")));
+            this.navlinkUser.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.ImageOptions.SmallImage")));
+            this.navlinkUser.Name = "navlinkUser";
+            this.navlinkUser.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkUser_LinkClicked);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,7 +137,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMenu";
+            this.Text = "Menü";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
@@ -110,5 +152,9 @@
         private DevExpress.XtraNavBar.NavBarItem navBill;
         private DevExpress.XtraNavBar.NavBarItem navCustomers;
         private DevExpress.XtraNavBar.NavBarItem navProducts;
+        private DevExpress.XtraNavBar.NavBarGroup navEmployee;
+        private DevExpress.XtraNavBar.NavBarItem navlinkEmployee;
+        private DevExpress.XtraNavBar.NavBarItem navlinkTeam;
+        private DevExpress.XtraNavBar.NavBarItem navlinkUser;
     }
 }

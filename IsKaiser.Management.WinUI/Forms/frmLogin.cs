@@ -30,12 +30,19 @@ namespace IsKaiser.Management.WinUI.Forms
             var userType = _userService.CheckUser(txtUserName.Text.ToLower(), txtPassword.Text.ToLower());
             if (userType != null)
             {
-                
-                frmMenu frMenu = new frmMenu();
-                frMenu.Show();
-                UserType = userType.UserType;
-                Hide();
-
+                if (userType.UserType == 2)
+                {
+                    frmMain frMain = new frmMain(userType.UserType);
+                    frMain.Show();
+                    Hide();
+                }
+                else
+                {
+                    frmMenu frMenu = new frmMenu();
+                    frMenu.Show();
+                    UserType = userType.UserType;
+                    Hide();
+                }
             }
             else
             {
@@ -44,7 +51,7 @@ namespace IsKaiser.Management.WinUI.Forms
         }
         private void txtPassword_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode==System.Windows.Forms.Keys.Enter)
+            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
             {
                 DoLogin();
             }

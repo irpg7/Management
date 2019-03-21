@@ -33,9 +33,6 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
             this.tbarGroup = new DevExpress.XtraBars.Navigation.TileBar();
             this.tbGroupCommon = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tbtnNewCustomer = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -43,9 +40,6 @@
             this.tbtnExport = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tbGroupAdmin = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tbtnImport = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tbtnNewEmployee = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tbtnNewTeam = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tbtnNewUser = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.grdCustomers = new DevExpress.XtraGrid.GridControl();
             this.vwCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -148,9 +142,6 @@
             // tbGroupAdmin
             // 
             this.tbGroupAdmin.Items.Add(this.tbtnImport);
-            this.tbGroupAdmin.Items.Add(this.tbtnNewEmployee);
-            this.tbGroupAdmin.Items.Add(this.tbtnNewTeam);
-            this.tbGroupAdmin.Items.Add(this.tbtnNewUser);
             this.tbGroupAdmin.Name = "tbGroupAdmin";
             this.tbGroupAdmin.Text = "Yönetim";
             // 
@@ -173,66 +164,6 @@
             this.tbtnImport.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tbtnImport.Name = "tbtnImport";
             this.tbtnImport.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnImport_ItemClick);
-            // 
-            // tbtnNewEmployee
-            // 
-            this.tbtnNewEmployee.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
-            this.tbtnNewEmployee.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tbtnNewEmployee.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
-            this.tbtnNewEmployee.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tbtnNewEmployee.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tbtnNewEmployee.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tbtnNewEmployee.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
-            this.tbtnNewEmployee.AppearanceItem.Pressed.Options.UseBackColor = true;
-            this.tbtnNewEmployee.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement5.Text = "Temsilci Ekle";
-            this.tbtnNewEmployee.Elements.Add(tileItemElement5);
-            this.tbtnNewEmployee.Id = 6;
-            this.tbtnNewEmployee.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tbtnNewEmployee.Name = "tbtnNewEmployee";
-            this.tbtnNewEmployee.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnNewEmployee_ItemClick);
-            // 
-            // tbtnNewTeam
-            // 
-            this.tbtnNewTeam.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
-            this.tbtnNewTeam.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tbtnNewTeam.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
-            this.tbtnNewTeam.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tbtnNewTeam.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tbtnNewTeam.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tbtnNewTeam.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
-            this.tbtnNewTeam.AppearanceItem.Pressed.Options.UseBackColor = true;
-            this.tbtnNewTeam.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement6.Text = "Ekip Oluştur";
-            this.tbtnNewTeam.Elements.Add(tileItemElement6);
-            this.tbtnNewTeam.Id = 7;
-            this.tbtnNewTeam.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tbtnNewTeam.Name = "tbtnNewTeam";
-            this.tbtnNewTeam.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnNewTeam_ItemClick);
-            // 
-            // tbtnNewUser
-            // 
-            this.tbtnNewUser.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightGray;
-            this.tbtnNewUser.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tbtnNewUser.AppearanceItem.Normal.BackColor = System.Drawing.Color.Transparent;
-            this.tbtnNewUser.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
-            this.tbtnNewUser.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tbtnNewUser.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tbtnNewUser.AppearanceItem.Pressed.BackColor = System.Drawing.Color.Silver;
-            this.tbtnNewUser.AppearanceItem.Pressed.Options.UseBackColor = true;
-            this.tbtnNewUser.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            tileItemElement7.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement7.Text = "Kullanıcı Oluştur";
-            this.tbtnNewUser.Elements.Add(tileItemElement7);
-            this.tbtnNewUser.Id = 8;
-            this.tbtnNewUser.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tbtnNewUser.Name = "tbtnNewUser";
-            this.tbtnNewUser.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tbtnNewUser_ItemClick);
             // 
             // grdCustomers
             // 
@@ -372,9 +303,6 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnExport;
         private DevExpress.XtraBars.Navigation.TileBarGroup tbGroupAdmin;
         private DevExpress.XtraBars.Navigation.TileBarItem tbtnImport;
-        private DevExpress.XtraBars.Navigation.TileBarItem tbtnNewEmployee;
-        private DevExpress.XtraBars.Navigation.TileBarItem tbtnNewTeam;
-        private DevExpress.XtraBars.Navigation.TileBarItem tbtnNewUser;
         private DevExpress.XtraGrid.Columns.GridColumn colCode;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colTaxNo;

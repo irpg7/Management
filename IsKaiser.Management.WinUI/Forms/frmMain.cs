@@ -10,12 +10,14 @@ namespace IsKaiser.Management.WinUI.Forms
 {
     public partial class frmMain : XtraForm
     {
+        int _userType;
         public frmMain(int userType)
         {
             InitializeComponent();
             _customerService = InstanceFactory.GetInstance<ICustomerService>();
            
             _excelImporter = new ExcelImporter(); //!.Net Framework Bağımlılığından dolayı böyle çağırıldı.
+            _userType = userType;
             if (userType == 2)
             {
                 tbGroupAdmin.Visible = false;
@@ -76,28 +78,14 @@ namespace IsKaiser.Management.WinUI.Forms
             catch (Exception exception) { MessageBox.Show(exception.Message); }
         }
 
-        private void tbtnNewEmployee_ItemClick(object sender, TileItemEventArgs e)
-        {
-            frmNewEmployee frNewEmployee = new frmNewEmployee();
-            frNewEmployee.Show();
-        }
-
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (_userType==2)
+            {
+                Environment.Exit(1);
+            }
             frmMenu frMenu = new frmMenu();
             frMenu.Show();
-        }
-
-        private void tbtnNewTeam_ItemClick(object sender, TileItemEventArgs e)
-        {
-            frmNewTeam frNewTeam = new frmNewTeam();
-            frNewTeam.Show();
-        }
-
-        private void tbtnNewUser_ItemClick(object sender, TileItemEventArgs e)
-        {
-            frmNewUser frNewUser = new frmNewUser();
-            frNewUser.Show();
         }
 
         private void vwCustomers_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
