@@ -27,8 +27,7 @@ namespace IsKaiser.Management.WinUI.Forms
         {
             images=Directory.GetFiles(_filePath).ToList();
             picFrame.LoadAsync(images[index]);
-            picFrame.Focus();
-            TbarImageOperations.AllowSelectedItem = false;
+            TbarImageOperations.Focus();
             
         }
 
