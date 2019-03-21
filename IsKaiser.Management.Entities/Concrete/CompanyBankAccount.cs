@@ -8,6 +8,7 @@ namespace IsKaiser.Management.Entities.Concrete
     public class CompanyBankAccount:IEntity
     {
         public int AccountId { get; set; }
+        public int CompanyId { get; set; }
         public string BankName { get; set; }
         public string BranchOffice { get; set; }
         public string LiraIban { get; set; }
