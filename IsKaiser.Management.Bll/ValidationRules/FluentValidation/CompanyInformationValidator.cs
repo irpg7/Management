@@ -10,7 +10,10 @@ namespace IsKaiser.Management.Bll.ValidationRules.FluentValidation
     {
         public CompanyInformationValidator()
         {
-
+            RuleFor(ci => ci.Name).NotEmpty().OverridePropertyName("Firma Adı").MaximumLength(100);
+            RuleFor(ci => ci.Address).NotEmpty().OverridePropertyName("Firma Adresi").MaximumLength(100);
+            RuleFor(ci => ci.TaxDepartment).NotEmpty().OverridePropertyName("Vergi Dairesi").MaximumLength(50);
+            RuleFor(ci => ci.TaxNo).NotEmpty().OverridePropertyName("Vergi No.").MaximumLength(25);
         }
     }
 }
