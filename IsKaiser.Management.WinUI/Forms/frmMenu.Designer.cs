@@ -38,6 +38,8 @@
             this.navlinkEmployee = new DevExpress.XtraNavBar.NavBarItem();
             this.navlinkTeam = new DevExpress.XtraNavBar.NavBarItem();
             this.navlinkUser = new DevExpress.XtraNavBar.NavBarItem();
+            this.navParameters = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navlinkCompanyInfo = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +49,16 @@
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navMain,
-            this.navEmployee});
+            this.navEmployee,
+            this.navParameters});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBill,
             this.navCustomers,
             this.navProducts,
             this.navlinkEmployee,
             this.navlinkTeam,
-            this.navlinkUser});
+            this.navlinkUser,
+            this.navlinkCompanyInfo});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 250;
@@ -82,6 +86,7 @@
             // navCustomers
             // 
             this.navCustomers.Caption = "Müşteriler";
+            this.navCustomers.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navCustomers.ImageOptions.LargeImage")));
             this.navCustomers.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navCustomers.ImageOptions.SmallImage")));
             this.navCustomers.Name = "navCustomers";
             this.navCustomers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navCustomers_LinkClicked);
@@ -89,6 +94,7 @@
             // navProducts
             // 
             this.navProducts.Caption = "Ürünler";
+            this.navProducts.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navProducts.ImageOptions.LargeImage")));
             this.navProducts.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navProducts.ImageOptions.SmallImage")));
             this.navProducts.Name = "navProducts";
             this.navProducts.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navProducts_LinkClicked);
@@ -106,26 +112,41 @@
             // navlinkEmployee
             // 
             this.navlinkEmployee.Caption = "Temsilci";
-            this.navlinkEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem1.ImageOptions.LargeImage")));
-            this.navlinkEmployee.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem1.ImageOptions.SmallImage")));
+            this.navlinkEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navlinkEmployee.ImageOptions.LargeImage")));
+            this.navlinkEmployee.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navlinkEmployee.ImageOptions.SmallImage")));
             this.navlinkEmployee.Name = "navlinkEmployee";
             this.navlinkEmployee.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkEmployee_LinkClicked);
             // 
             // navlinkTeam
             // 
             this.navlinkTeam.Caption = "Ekip";
-            this.navlinkTeam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.LargeImage")));
-            this.navlinkTeam.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.SmallImage")));
+            this.navlinkTeam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navlinkTeam.ImageOptions.LargeImage")));
+            this.navlinkTeam.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navlinkTeam.ImageOptions.SmallImage")));
             this.navlinkTeam.Name = "navlinkTeam";
             this.navlinkTeam.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkTeam_LinkClicked);
             // 
             // navlinkUser
             // 
             this.navlinkUser.Caption = "Kullanıcı";
-            this.navlinkUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.ImageOptions.LargeImage")));
-            this.navlinkUser.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.ImageOptions.SmallImage")));
+            this.navlinkUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navlinkUser.ImageOptions.LargeImage")));
+            this.navlinkUser.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navlinkUser.ImageOptions.SmallImage")));
             this.navlinkUser.Name = "navlinkUser";
             this.navlinkUser.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkUser_LinkClicked);
+            // 
+            // navParameters
+            // 
+            this.navParameters.Caption = "Firma";
+            this.navParameters.Expanded = true;
+            this.navParameters.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navlinkCompanyInfo)});
+            this.navParameters.Name = "navParameters";
+            // 
+            // navlinkCompanyInfo
+            // 
+            this.navlinkCompanyInfo.Caption = "Firma Bilgileri";
+            this.navlinkCompanyInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navlinkCompanyInfo.ImageOptions.LargeImage")));
+            this.navlinkCompanyInfo.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navlinkCompanyInfo.ImageOptions.SmallImage")));
+            this.navlinkCompanyInfo.Name = "navlinkCompanyInfo";
             // 
             // frmMenu
             // 
@@ -156,5 +177,7 @@
         private DevExpress.XtraNavBar.NavBarItem navlinkEmployee;
         private DevExpress.XtraNavBar.NavBarItem navlinkTeam;
         private DevExpress.XtraNavBar.NavBarItem navlinkUser;
+        private DevExpress.XtraNavBar.NavBarGroup navParameters;
+        private DevExpress.XtraNavBar.NavBarItem navlinkCompanyInfo;
     }
 }
