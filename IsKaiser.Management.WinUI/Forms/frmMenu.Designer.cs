@@ -147,6 +147,7 @@
             this.navlinkCompanyInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navlinkCompanyInfo.ImageOptions.LargeImage")));
             this.navlinkCompanyInfo.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navlinkCompanyInfo.ImageOptions.SmallImage")));
             this.navlinkCompanyInfo.Name = "navlinkCompanyInfo";
+            this.navlinkCompanyInfo.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavlinkCompanyInfo_LinkClicked);
             // 
             // frmMenu
             // 

@@ -66,5 +66,11 @@ namespace IsKaiser.Management.WinUI.Forms
             frmNewUser frNewUser = new frmNewUser();
             frNewUser.Show();
         }
+
+        private void NavlinkCompanyInfo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FrmCompanyInfo frmCompanyInfo = new FrmCompanyInfo();
+            frmCompanyInfo.Show();
+        }
     }
 }
