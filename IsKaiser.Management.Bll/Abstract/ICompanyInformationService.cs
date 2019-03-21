@@ -10,6 +10,6 @@ namespace IsKaiser.Management.Bll.Abstract
         void Add(CompanyInformation companyInformation);
         void Update(CompanyInformation companyInformation);
         void Delete(CompanyInformation companyInformation);
-        CompanyInformation GetCompany(int id);
+        CompanyInformation GetCompany();
     }
 }

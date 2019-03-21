@@ -28,7 +28,7 @@ namespace IsKaiser.Management.Bll.Concrete
             _companyInformationDal.Delete(companyInformation);
         }
 
-        public CompanyInformation GetCompany(int id)
+        public CompanyInformation GetCompany()
         {
             return _companyInformationDal.GetAll().FirstOrDefault();
         }
